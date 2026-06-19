@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nerego Studio — Preview Paletas · Fase 1</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======================================================================
+       RESET MÍNIMO
+    ====================================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    img, svg { display: block; max-width: 100%; }
+
+    /* ======================================================================
+       VARIABLES DE PALETA — se aplican en el wrapper .palette-[a|b]
+    ====================================================================== */
+
+    .palette-a {
+      --c-bg:                  #FAFAF7;
+      --c-surface:             #FFFFFF;
+      --c-surface-alt:         #F3F3EF;
+      --c-text-primary:        #0F0F0F;
+      --c-text-secondary:      #5C5C5A;
+      --c-text-muted:          #9C9C98;
+      --c-accent-primary:      #1A2B4A;
+      --c-accent-primary-h:    #243A62;
+      --c-accent-primary-sub:  #EEF1F8;
+      --c-accent-warm:         #D4633A;
+      --c-accent-warm-h:       #BE4F29;
+      --c-accent-warm-sub:     #FBF0EC;
+      --c-border:              #E4E4DF;
+      --c-border-strong:       #C8C8C2;
+      --c-dark-bg:             #1A2B4A;
+      --c-dark-surface:        #243A62;
+      --c-dark-text:           #F5F5F2;
+      --c-dark-text-2:         #A8B4CC;
+      --c-dark-border:         rgba(255,255,255,0.10);
+      --font-display:          'Bricolage Grotesque', sans-serif;
+      --font-body:             'Inter', sans-serif;
+      --label-accent-name:     "Azul tinta";
+      --label-warm-name:       "Terracota";
+    }
+
+    .palette-b {
+      --c-bg:                  #F8F8F5;
+      --c-surface:             #FFFFFF;
+      --c-surface-alt:         #F0F0EB;
+      --c-text-primary:        #0F0F0F;
+      --c-text-secondary:      #5A5A56;
+      --c-text-muted:          #9A9A94;
+      --c-accent-primary:      #1F3D2E;
+      --c-accent-primary-h:    #2D5540;
+      --c-accent-primary-sub:  #EBF3EE;
+      --c-accent-warm:         #E5994A;
+      --c-accent-warm-h:       #D08030;
+      --c-accent-warm-sub:     #FDF5E8;
+      --c-border:              #E2E2DC;
+      --c-border-strong:       #C4C4BC;
+      --c-dark-bg:             #101A14;
+      --c-dark-surface:        #172118;
+      --c-dark-text:           #EDF2EE;
+      --c-dark-text-2:         #8BA898;
+      --c-dark-border:         rgba(237,242,238,0.08);
+      --font-display:          'Syne', sans-serif;
+      --font-body:             'Inter', sans-serif;
+    }
+
+    /* ======================================================================
+       CHROME DE LA PREVIEW (no forma parte del diseño real)
+    ====================================================================== */
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #1A1A18;
+      min-height: 100vh;
+    }
+
+    /* Header fijo de la preview */
+    .preview-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #111110;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      height: 56px;
+    }
+
+    .preview-header-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .preview-header-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      padding: 6px 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: rgba(255,255,255,0.45);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 200ms ease;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .tab-btn.active {
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.12);
+      color: #FFFFFF;
+    }
+
+    .tab-btn .badge {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 7px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .tab-btn[data-tab="a"] .badge { background: #D4633A; }
+    .tab-btn[data-tab="b"] .badge { background: #E5994A; }
+
+    .preview-hint {
+      margin-left: auto;
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Contenido de tabs */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ======================================================================
+       SECCIÓN ETIQUETA DE PALETA
+    ====================================================================== */
+
+    .palette-label {
+      padding: 40px 40px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .palette-label__eyebrow {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .palette-label__title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .palette-label__desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    .palette-label__fonts {
+      margin-top: 16px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .font-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .font-chip__type {
+      font-size: 10px;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ======================================================================
+       LAYOUT GENERAL DE SECCIONES DE PREVIEW
+    ====================================================================== */
+
+    .preview-section {
+      padding: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .preview-section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    /* ======================================================================
+       SWATCHES DE COLOR
+    ====================================================================== */
+
+    .swatches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .swatch__color {
+      height: 72px;
+    }
+
+    .swatch__info {
+      padding: 10px 12px;
+      background: #1C1C1A;
+    }
+
+    .swatch__name {
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2px;
+    }
+
+    .swatch__hex {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .swatch__role {
+      font-size: 9px;
+      color: rgba(255,255,255,0.25);
+      margin-top: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ======================================================================
+       ÁREA DE COMPONENTES RENDERIZADOS
+    ====================================================================== */
+
+    /* El fondo de los componentes usa las variables de la paleta */
+    .components-area {
+      background: var(--c-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .components-area__inner {
+      padding: 48px;
+    }
+
+    @media (max-width: 600px) {
+      .components-area__inner { padding: 24px; }
+      .preview-section { padding: 24px; }
+      .palette-label { padding: 24px; }
+    }
+
+    /* ======================================================================
+       TIPOGRAFÍA — renderizada en el área de componentes
+    ====================================================================== */
+
+    .type-scale {
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .type-scale-title {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-text-muted);
+      margin-bottom: 32px;
+    }
+
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .type-row__label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      color: var(--c-text-muted);
+      width: 52px;
+      flex-shrink: 0;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    .type-hero-sample {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--c-text-primary);
+    }
+
+    .type-h1-sample {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: var(--c-text-primary);
+    }
+
+    .type-h2-sample {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--c-text-primary);
+    }
+
+    .type-h3-sample {
+      font-family: var(--font-display);
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--c-text-primary);
+    }
+
+    .type-body-sample {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--c-text-secondary);
+      max-width: 560px;
+    }
+
+    .type-small-sample {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--c-text-muted);
+    }
+
+    .type-label-sample {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--c-text-muted);
+    }
+
+    /* ======================================================================
+       HERO — simulación de sección hero
+    ====================================================================== */
+
+    .hero-demo {
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .hero-demo__eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-accent-primary);
+      background: var(--c-accent-primary-sub);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+    }
+
+    .hero-demo__headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--c-text-primary);
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .hero-demo__headline em {
+      font-style: normal;
+      color: var(--c-accent-warm);
+    }
+
+    .hero-demo__subhead {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.8vw, 1.1875rem);
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--c-text-secondary);
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    /* ======================================================================
+       BOTONES
+    ====================================================================== */
+
+    .buttons-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 2px solid transparent;
+      text-decoration: none;
+      transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      letter-spacing: -0.01em;
+    }
+
+    .btn--primary {
+      background: var(--c-accent-warm);
+      color: #FFFFFF;
+      border-color: var(--c-accent-warm);
+    }
+
+    .btn--primary:hover {
+      background: var(--c-accent-warm-h);
+      border-color: var(--c-accent-warm-h);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      color: var(--c-accent-primary);
+      border-color: var(--c-border-strong);
+    }
+
+    .btn--secondary:hover {
+      background: var(--c-surface-alt);
+      border-color: var(--c-accent-primary);
+      transform: translateY(-1px);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--c-text-secondary);
+      border-color: transparent;
+      padding: 13px 16px;
+    }
+
+    .btn--ghost:hover {
+      background: var(--c-surface-alt);
+      color: var(--c-text-primary);
+    }
+
+    .btn--sm {
+      padding: 9px 18px;
+      font-size: 13px;
+      border-radius: 9px;
+    }
+
+    .btn--lg {
+      padding: 16px 32px;
+      font-size: 17px;
+      border-radius: 14px;
+    }
+
+    /* ======================================================================
+       CARD — Pain Point
+    ====================================================================== */
+
+    .cards-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .pain-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .pain-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(15,15,15,0.07), 0 2px 8px rgba(15,15,15,0.04);
+      border-color: var(--c-border-strong);
+    }
+
+    .pain-card__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--c-accent-primary-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: var(--c-accent-primary);
+    }
+
+    .pain-card__title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--c-text-primary);
+      margin-bottom: 10px;
+    }
+
+    .pain-card__desc {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--c-text-secondary);
+    }
+
+    /* ======================================================================
+       BANDA DE BONIFICACIÓN
+    ====================================================================== */
+
+    .bono-band {
+      background: var(--c-dark-bg);
+      border-radius: 20px;
+      padding: 48px;
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bono-band::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: var(--c-accent-warm);
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .bono-band__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-accent-warm);
+      margin-bottom: 20px;
+    }
+
+    .bono-band__eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-accent-warm);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .bono-band__headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.375rem, 3vw, 2rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--c-dark-text);
+      margin-bottom: 16px;
+      max-width: 560px;
+    }
+
+    .bono-band__headline strong {
+      color: var(--c-accent-warm);
+    }
+
+    .bono-band__sub {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--c-dark-text-2);
+      max-width: 480px;
+    }
+
+    /* ======================================================================
+       DARK SECTION DEMO (solo para Opción B en preview)
+    ====================================================================== */
+
+    .dark-section-demo {
+      background: var(--c-dark-bg);
+      padding: 48px;
+      border-radius: 20px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .dark-demo-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.2);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .dark-hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4ADE80;
+      background: rgba(74, 222, 128, 0.10);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      margin-bottom: 24px;
+    }
+
+    .dark-hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--c-dark-text);
+      margin-bottom: 20px;
+      max-width: 640px;
+    }
+
+    .dark-hero-headline em {
+      font-style: normal;
+      color: var(--c-accent-warm);
+    }
+
+    .dark-hero-sub {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--c-dark-text-2);
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+
+    .dark-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      background: var(--c-accent-warm);
+      color: #FFFFFF;
+      border: none;
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      margin-right: 12px;
+    }
+
+    .dark-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--c-dark-text);
+      border: 1px solid var(--c-dark-border);
+      cursor: pointer;
+      letter-spacing: -0.01em;
+    }
+
+    /* ======================================================================
+       SECCIÓN: jerarquía de cards de ofertas (pequeña demo adicional)
+    ====================================================================== */
+
+    .offer-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 600px) {
+      .offer-cards { grid-template-columns: 1fr; }
+    }
+
+    .offer-card {
+      background: var(--c-surface);
+      border: 1px solid var(--c-border);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .offer-card--accent {
+      background: var(--c-accent-primary);
+      border-color: var(--c-accent-primary);
+    }
+
+    .offer-card__number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--c-border-strong);
+      margin-bottom: 16px;
+    }
+
+    .offer-card--accent .offer-card__number {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .offer-card__title {
+      font-family: var(--font-display);
+      font-size: 1.1875rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--c-text-primary);
+      margin-bottom: 10px;
+    }
+
+    .offer-card--accent .offer-card__title {
+      color: #FFFFFF;
+    }
+
+    .offer-card__desc {
+      font-family: var(--font-body);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--c-text-secondary);
+    }
+
+    .offer-card--accent .offer-card__desc {
+      color: rgba(255,255,255,0.65);
+    }
+
+    .offer-card__badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-family: var(--font-body);
+    }
+
+    .offer-card__badge--light {
+      background: var(--c-accent-warm-sub);
+      color: var(--c-accent-warm);
+    }
+
+    .offer-card__badge--dark {
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ======================================================================
+       NOTA DE COMPARACIÓN
+    ====================================================================== */
+
+    .compare-note {
+      background: #1C1C1A;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 40px 0;
+    }
+
+    .compare-note p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.6;
+    }
+
+    .compare-note strong {
+      color: rgba(255,255,255,0.7);
+      font-weight: 600;
+    }
+
+    /* ======================================================================
+       SECTION DIVIDER LABEL
+    ====================================================================== */
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .section-divider__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .section-divider__line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ====================================================================
+       HEADER FIJO
+  ===================================================================== -->
+  <header class="preview-header">
+    <span class="preview-header-logo">Nerego Studio</span>
+    <div class="preview-header-divider"></div>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="a">
+        <span class="badge"></span>Opción A — Azul tinta
+      </button>
+      <button class="tab-btn" data-tab="b">
+        <span class="badge"></span>Opción B — Verde bosque
+      </button>
+    </nav>
+    <span class="preview-hint">Preview · Fase 1 · Sistema de diseño</span>
+  </header>
+
+
+  <!-- ====================================================================
+       OPCIÓN A
+  ===================================================================== -->
+  <div class="tab-content active" id="tab-a">
+    <div class="palette-a">
+
+      <!-- ETIQUETA -->
+      <div class="palette-label">
+        <p class="palette-label__eyebrow">Opción A</p>
+        <h2 class="palette-label__title">"Criterio en blanco" — Azul tinta · Terracota</h2>
+        <p class="palette-label__desc">
+          Todo silencio visual. El blanco roto como lienzo de consultoría seria. El azul tinta como
+          autoridad institucional. La terracota como energía de acción, cálida sin gritar.
+          Sensación: despacho premium, no agencia de publicidad.
+        </p>
+        <div class="palette-label__fonts">
+          <span class="font-chip" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700;">
+            <span class="font-chip__type">Display</span> Bricolage Grotesque
+          </span>
+          <span class="font-chip" style="font-family: 'Inter', sans-serif;">
+            <span class="font-chip__type">Body</span> Inter
+          </span>
+        </div>
+      </div>
+
+      <!-- SWATCHES -->
+      <div class="preview-section">
+        <div class="section-divider">
+          <span class="section-divider__label">Colores</span>
+          <div class="section-divider__line"></div>
+        </div>
+        <div class="swatches-grid">
+          <div class="swatch">
+            <div class="swatch__color" style="background:#FAFAF7;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">background</div>
+              <div class="swatch__hex">#FAFAF7</div>
+              <div class="swatch__role">Canvas principal</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#FFFFFF; border-bottom:1px solid #E4E4DF;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">surface</div>
+              <div class="swatch__hex">#FFFFFF</div>
+              <div class="swatch__role">Cards, modales</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#F3F3EF;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">surface-alt</div>
+              <div class="swatch__hex">#F3F3EF</div>
+              <div class="swatch__role">Secciones alternas</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#0F0F0F;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">text-primary</div>
+              <div class="swatch__hex">#0F0F0F</div>
+              <div class="swatch__role">Cuerpo, titulares</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#5C5C5A;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">text-secondary</div>
+              <div class="swatch__hex">#5C5C5A</div>
+              <div class="swatch__role">Subtítulos, descripciones</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#9C9C98;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">text-muted</div>
+              <div class="swatch__hex">#9C9C98</div>
+              <div class="swatch__role">Captions, placeholders</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#1A2B4A;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-primary</div>
+              <div class="swatch__hex">#1A2B4A</div>
+              <div class="swatch__role">Azul tinta — autoridad</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#EEF1F8;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-primary-subtle</div>
+              <div class="swatch__hex">#EEF1F8</div>
+              <div class="swatch__role">Fondos informativos</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#D4633A;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-warm</div>
+              <div class="swatch__hex">#D4633A</div>
+              <div class="swatch__role">Terracota — CTAs</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#FBF0EC;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-warm-subtle</div>
+              <div class="swatch__hex">#FBF0EC</div>
+              <div class="swatch__role">Fondo sutil de CTA</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#E4E4DF;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">border</div>
+              <div class="swatch__hex">#E4E4DF</div>
+              <div class="swatch__role">Bordes de cards</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#1A2B4A;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">dark-bg</div>
+              <div class="swatch__hex">#1A2B4A</div>
+              <div class="swatch__role">Banda bonificación</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPONENTES RENDERIZADOS -->
+      <div class="preview-section">
+        <div class="section-divider">
+          <span class="section-divider__label">Componentes aplicados</span>
+          <div class="section-divider__line"></div>
+        </div>
+
+        <div class="components-area palette-a">
+          <div class="components-area__inner">
+
+            <!-- Escala tipográfica -->
+            <div class="type-scale">
+              <p class="type-scale-title">Jerarquía tipográfica — Bricolage Grotesque + Inter</p>
+
+              <div class="type-row">
+                <span class="type-row__label">Hero</span>
+                <span class="type-hero-sample">Cada cliente<br>que no contestas</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">H1</span>
+                <span class="type-h1-sample">Primero entendemos.<br>Después ejecutamos.</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">H2</span>
+                <span class="type-h2-sample">¿Te suena alguno de estos?</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">H3</span>
+                <span class="type-h3-sample">Criterio antes que tecnología</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">Body</span>
+                <span class="type-body-sample">Si el proceso está mal, la IA solo lo amplifica. Por eso el diagnóstico viene primero: ordenamos, identificamos oportunidades reales y construimos sobre base sólida.</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">Small</span>
+                <span class="type-small-sample">Sin compromiso · Respuesta en 24h · 100% confidencial</span>
+              </div>
+              <div class="type-row" style="margin-bottom:0">
+                <span class="type-row__label">Label</span>
+                <span class="type-label-sample">Para negocios locales en España</span>
+              </div>
+            </div>
+
+            <!-- Hero simulado -->
+            <div class="hero-demo">
+              <span class="hero-demo__eyebrow">Para negocios locales en España</span>
+              <h1 class="hero-demo__headline">
+                Cada cliente que<br>no contestas es<br>dinero que <em>se va.</em><br>Eso tiene solución.
+              </h1>
+              <p class="hero-demo__subhead">
+                Primero un diagnóstico honesto de tu negocio. Después implementamos lo que de verdad necesitas, sin rodeos.
+              </p>
+              <div class="buttons-demo">
+                <button class="btn btn--primary btn--lg">
+                  Solicitar diagnóstico
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </button>
+                <button class="btn btn--secondary btn--lg">Ver cómo funciona</button>
+              </div>
+            </div>
+
+            <!-- Cards pain points -->
+            <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Cards — Pain points</p>
+            <div class="cards-demo">
+              <div class="pain-card">
+                <div class="pain-card__icon">
+                  <!-- Moon icon — "Pierdes reservas mientras duermes" -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                </div>
+                <h3 class="pain-card__title">Pierdes reservas mientras duermes</h3>
+                <p class="pain-card__desc">Nadie contesta el WhatsApp fuera de horario y el cliente se va con la competencia. Mañana ya no se acuerda de ti.</p>
+              </div>
+              <div class="pain-card">
+                <div class="pain-card__icon" style="background:var(--c-accent-warm-sub);color:var(--c-accent-warm);">
+                  <!-- Link-break icon — "El negocio depende de ti" -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    <line x1="8" y1="2" x2="8" y2="5"/>
+                    <line x1="2" y1="8" x2="5" y2="8"/>
+                    <line x1="16" y1="19" x2="16" y2="22"/>
+                    <line x1="19" y1="16" x2="22" y2="16"/>
+                  </svg>
+                </div>
+                <h3 class="pain-card__title">El negocio depende demasiado de ti</h3>
+                <p class="pain-card__desc">Si te tomas una semana libre, todo se ralentiza. Hay cosas que solo sabes hacer tú, y eso te ata.</p>
+              </div>
+              <div class="pain-card">
+                <div class="pain-card__icon">
+                  <!-- Users-x icon — "Los clientes que dejan de venir" -->
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <line x1="17" y1="8" x2="23" y2="14"/>
+                    <line x1="23" y1="8" x2="17" y2="14"/>
+                  </svg>
+                </div>
+                <h3 class="pain-card__title">Los clientes que dejan de venir no vuelven</h3>
+                <p class="pain-card__desc">Nadie los detecta, nadie les contacta. Se pierden sin que te enteres.</p>
+              </div>
+            </div>
+
+            <!-- Oferta cards -->
+            <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Cards — Las dos ofertas</p>
+            <div class="offer-cards" style="margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--c-border);">
+              <div class="offer-card">
+                <div class="offer-card__number">01</div>
+                <span class="offer-card__badge offer-card__badge--light">Producto cerrado</span>
+                <h3 class="offer-card__title">Diagnóstico Inteligente de Negocio</h3>
+                <p class="offer-card__desc">Auditoría de procesos por áreas, oportunidades de IA y revisión de ciberseguridad. Entregable en Notion.</p>
+              </div>
+              <div class="offer-card offer-card--accent">
+                <div class="offer-card__number">02</div>
+                <span class="offer-card__badge offer-card__badge--dark">Upsell natural</span>
+                <h3 class="offer-card__title">Implementación y orquestación</h3>
+                <p class="offer-card__desc">Ejecutamos el roadmap. El cliente no toca nada técnico. Tú hablas conmigo desde el primer día.</p>
+              </div>
+            </div>
+
+            <!-- Banda de bonificación -->
+            <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Banda — Bonificación 30 días</p>
+            <div class="bono-band">
+              <div class="bono-band__eyebrow">
+                <span class="bono-band__eyebrow-dot"></span>
+                Bonificación especial
+              </div>
+              <h2 class="bono-band__headline">
+                Si implementas en los 30 días siguientes<br>
+                al diagnóstico, <strong>el coste se descuenta al 100%.</strong>
+              </h2>
+              <p class="bono-band__sub">
+                El diagnóstico deja de ser un gasto y se convierte en parte de la inversión.
+              </p>
+            </div>
+
+          </div><!-- /inner -->
+        </div><!-- /components-area -->
+      </div>
+
+    </div><!-- /palette-a -->
+
+    <div class="compare-note">
+      <p><strong>Opción A — Criterio en blanco:</strong> Máxima legibilidad sobre fondo claro. El azul tinta da autoridad institucional y la terracota energía sin agresividad. Bricolage Grotesque aporta personalidad editorial sin ser extravagante. Sensación: consultora premium con historia.</p>
+    </div>
+
+  </div><!-- /tab-a -->
+
+
+  <!-- ====================================================================
+       OPCIÓN B
+  ===================================================================== -->
+  <div class="tab-content" id="tab-b">
+    <div class="palette-b">
+
+      <!-- ETIQUETA -->
+      <div class="palette-label">
+        <p class="palette-label__eyebrow">Opción B</p>
+        <h2 class="palette-label__title">"Inteligencia verde" — Verde bosque · Ámbar · Dark sections</h2>
+        <p class="palette-label__desc">
+          Base clara igual que A, pero con secciones enteras en dark (Hero, Demo) que crean
+          contraste dramático. El verde bosque es inusual en agencias tech: señala criterio propio
+          y confianza. El ámbar es más dorado y cálido que la terracota.
+          Sensación: producto tech serio con alma propia.
+        </p>
+        <div class="palette-label__fonts">
+          <span class="font-chip" style="font-family: 'Syne', sans-serif; font-weight: 700;">
+            <span class="font-chip__type">Display</span> Syne
+          </span>
+          <span class="font-chip" style="font-family: 'Inter', sans-serif;">
+            <span class="font-chip__type">Body</span> Inter
+          </span>
+        </div>
+      </div>
+
+      <!-- SWATCHES -->
+      <div class="preview-section">
+        <div class="section-divider">
+          <span class="section-divider__label">Colores</span>
+          <div class="section-divider__line"></div>
+        </div>
+        <div class="swatches-grid">
+          <div class="swatch">
+            <div class="swatch__color" style="background:#F8F8F5;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">background</div>
+              <div class="swatch__hex">#F8F8F5</div>
+              <div class="swatch__role">Canvas principal</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#FFFFFF;border-bottom:1px solid #E2E2DC;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">surface</div>
+              <div class="swatch__hex">#FFFFFF</div>
+              <div class="swatch__role">Cards, modales</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#F0F0EB;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">surface-alt</div>
+              <div class="swatch__hex">#F0F0EB</div>
+              <div class="swatch__role">Secciones alternas</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#0F0F0F;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">text-primary</div>
+              <div class="swatch__hex">#0F0F0F</div>
+              <div class="swatch__role">Cuerpo, titulares</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#1F3D2E;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-primary</div>
+              <div class="swatch__hex">#1F3D2E</div>
+              <div class="swatch__role">Verde bosque — criterio</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#EBF3EE;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-primary-subtle</div>
+              <div class="swatch__hex">#EBF3EE</div>
+              <div class="swatch__role">Fondos informativos</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#E5994A;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-warm</div>
+              <div class="swatch__hex">#E5994A</div>
+              <div class="swatch__role">Ámbar — CTAs</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#FDF5E8;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">accent-warm-subtle</div>
+              <div class="swatch__hex">#FDF5E8</div>
+              <div class="swatch__role">Fondo sutil de CTA</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#E2E2DC;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">border</div>
+              <div class="swatch__hex">#E2E2DC</div>
+              <div class="swatch__role">Bordes de cards</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#101A14;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">dark-bg</div>
+              <div class="swatch__hex">#101A14</div>
+              <div class="swatch__role">Hero, Demo section</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#172118;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">dark-surface</div>
+              <div class="swatch__hex">#172118</div>
+              <div class="swatch__role">Cards en dark sections</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch__color" style="background:#4ADE80;"></div>
+            <div class="swatch__info">
+              <div class="swatch__name">dark-accent</div>
+              <div class="swatch__hex">#4ADE80</div>
+              <div class="swatch__role">Highlight en dark sections</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPONENTES RENDERIZADOS -->
+      <div class="preview-section">
+        <div class="section-divider">
+          <span class="section-divider__label">Componentes aplicados</span>
+          <div class="section-divider__line"></div>
+        </div>
+
+        <!-- DARK SECTION DEMO (Hero simulado en dark) -->
+        <div class="dark-section-demo palette-b" style="margin-bottom:32px;">
+          <p class="dark-demo-label">↑ Sección Hero — en dark (exclusivo de Opción B)</p>
+          <span class="dark-hero-eyebrow">Para negocios locales en España</span>
+          <h1 class="dark-hero-headline">
+            Cada cliente que<br>no contestas es<br>dinero que <em>se va.</em><br>Eso tiene solución.
+          </h1>
+          <p class="dark-hero-sub">
+            Primero un diagnóstico honesto de tu negocio. Después implementamos lo que de verdad necesitas, sin rodeos.
+          </p>
+          <button class="dark-btn-primary">
+            Solicitar diagnóstico
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </button>
+          <button class="dark-btn-secondary">Ver cómo funciona</button>
+        </div>
+
+        <div class="components-area palette-b">
+          <div class="components-area__inner">
+
+            <!-- Escala tipográfica -->
+            <div class="type-scale">
+              <p class="type-scale-title">Jerarquía tipográfica — Syne + Inter</p>
+
+              <div class="type-row">
+                <span class="type-row__label">Hero</span>
+                <span class="type-hero-sample">Cada cliente<br>que no contestas</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">H1</span>
+                <span class="type-h1-sample">Primero entendemos.<br>Después ejecutamos.</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">H2</span>
+                <span class="type-h2-sample">¿Te suena alguno de estos?</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">H3</span>
+                <span class="type-h3-sample">Criterio antes que tecnología</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">Body</span>
+                <span class="type-body-sample">Si el proceso está mal, la IA solo lo amplifica. Por eso el diagnóstico viene primero: ordenamos, identificamos oportunidades reales y construimos sobre base sólida.</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row__label">Small</span>
+                <span class="type-small-sample">Sin compromiso · Respuesta en 24h · 100% confidencial</span>
+              </div>
+              <div class="type-row" style="margin-bottom:0">
+                <span class="type-row__label">Label</span>
+                <span class="type-label-sample">Para negocios locales en España</span>
+              </div>
+            </div>
+
+            <!-- Botones (en sección clara) -->
+            <div style="margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--c-border);">
+              <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Botones — Sección clara</p>
+              <div class="buttons-demo">
+                <button class="btn btn--primary btn--lg">
+                  Solicitar diagnóstico
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                </button>
+                <button class="btn btn--secondary btn--lg">Ver cómo funciona</button>
+                <button class="btn btn--ghost btn--lg">Más info</button>
+              </div>
+              <div class="buttons-demo" style="margin-top:12px;">
+                <button class="btn btn--primary">Solicitar diagnóstico</button>
+                <button class="btn btn--secondary">Ver cómo funciona</button>
+                <button class="btn btn--primary btn--sm">Empezamos</button>
+              </div>
+            </div>
+
+            <!-- Cards pain points -->
+            <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Cards — Pain points</p>
+            <div class="cards-demo">
+              <div class="pain-card">
+                <div class="pain-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                </div>
+                <h3 class="pain-card__title">Pierdes reservas mientras duermes</h3>
+                <p class="pain-card__desc">Nadie contesta el WhatsApp fuera de horario y el cliente se va con la competencia. Mañana ya no se acuerda de ti.</p>
+              </div>
+              <div class="pain-card">
+                <div class="pain-card__icon" style="background:var(--c-accent-warm-sub);color:var(--c-accent-warm);">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                  </svg>
+                </div>
+                <h3 class="pain-card__title">El negocio depende demasiado de ti</h3>
+                <p class="pain-card__desc">Si te tomas una semana libre, todo se ralentiza. Hay cosas que solo sabes hacer tú, y eso te ata.</p>
+              </div>
+              <div class="pain-card">
+                <div class="pain-card__icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <line x1="17" y1="8" x2="23" y2="14"/>
+                    <line x1="23" y1="8" x2="17" y2="14"/>
+                  </svg>
+                </div>
+                <h3 class="pain-card__title">Los clientes que dejan de venir no vuelven</h3>
+                <p class="pain-card__desc">Nadie los detecta, nadie les contacta. Se pierden sin que te enteres.</p>
+              </div>
+            </div>
+
+            <!-- Oferta cards -->
+            <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Cards — Las dos ofertas</p>
+            <div class="offer-cards" style="margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid var(--c-border);">
+              <div class="offer-card">
+                <div class="offer-card__number">01</div>
+                <span class="offer-card__badge offer-card__badge--light">Producto cerrado</span>
+                <h3 class="offer-card__title">Diagnóstico Inteligente de Negocio</h3>
+                <p class="offer-card__desc">Auditoría de procesos por áreas, oportunidades de IA y revisión de ciberseguridad. Entregable en Notion.</p>
+              </div>
+              <div class="offer-card offer-card--accent">
+                <div class="offer-card__number">02</div>
+                <span class="offer-card__badge offer-card__badge--dark">Upsell natural</span>
+                <h3 class="offer-card__title">Implementación y orquestación</h3>
+                <p class="offer-card__desc">Ejecutamos el roadmap. El cliente no toca nada técnico. Tú hablas conmigo desde el primer día.</p>
+              </div>
+            </div>
+
+            <!-- Banda bonificación -->
+            <p style="font-family:var(--font-body);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--c-text-muted);margin-bottom:20px;">Banda — Bonificación 30 días</p>
+            <div class="bono-band">
+              <div class="bono-band__eyebrow">
+                <span class="bono-band__eyebrow-dot"></span>
+                Bonificación especial
+              </div>
+              <h2 class="bono-band__headline">
+                Si implementas en los 30 días siguientes<br>
+                al diagnóstico, <strong>el coste se descuenta al 100%.</strong>
+              </h2>
+              <p class="bono-band__sub">
+                El diagnóstico deja de ser un gasto y se convierte en parte de la inversión.
+              </p>
+            </div>
+
+          </div><!-- /inner -->
+        </div><!-- /components-area -->
+      </div>
+
+    </div><!-- /palette-b -->
+
+    <div class="compare-note">
+      <p><strong>Opción B — Inteligencia verde:</strong> El Hero en dark (<code style="background:rgba(255,255,255,0.08);padding:2px 6px;border-radius:4px;font-size:11px;">#101A14</code>) crea un primer impacto más dramático, tipo producto tech. El verde bosque es inusual y diferenciador. Syne tiene un carácter geométrico-arquitectónico más cercano a Linear/Vercel. El ámbar dora más que la terracota. La dualidad light/dark da más jerarquía visual entre secciones.</p>
+    </div>
+
+  </div><!-- /tab-b -->
+
+
+  <div style="height:80px;"></div>
+
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const target = btn.getAttribute('data-tab');
+
+        tabBtns.forEach(function(b) { b.classList.remove('active'); });
+        tabContents.forEach(function(c) { c.classList.remove('active'); });
+
+        btn.classList.add('active');
+        document.getElementById('tab-' + target).classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
