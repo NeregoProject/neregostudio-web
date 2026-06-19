@@ -1,1 +1,213 @@
-/* base.css — Fase 1 */
+/* ==========================================================================
+   BASE — Nerego Studio
+   Estilos globales: body, headings, links, focus, selección, scrollbar.
+   Requiere: reset.css y tokens.css cargados antes.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BODY
+-------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+}
+
+/* --------------------------------------------------------------------------
+   HEADINGS
+   Fuente display con tracking ajustado en titulares grandes.
+-------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--leading-tight);
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--text-hero);
+  letter-spacing: var(--tracking-tighter);
+  line-height: var(--leading-none);
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  letter-spacing: var(--tracking-tight);
+}
+
+h3 {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+}
+
+h4 {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-snug);
+}
+
+h5 {
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-normal);
+}
+
+h6 {
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-normal);
+}
+
+/* --------------------------------------------------------------------------
+   PÁRRAFOS Y CUERPO
+-------------------------------------------------------------------------- */
+p {
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: 65ch;
+}
+
+strong, b {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+small {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   LINKS
+-------------------------------------------------------------------------- */
+a {
+  color: var(--color-accent-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-in-out),
+              text-decoration-color var(--duration-fast) var(--ease-in-out);
+}
+
+a:hover {
+  color: var(--color-accent-primary-hover);
+  text-decoration-color: var(--color-accent-primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   FOCUS VISIBLE
+   Accesible, consistente, usa el acento primario.
+-------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* Quitar outline en click con ratón (solo en teclado) */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   SELECCIÓN DE TEXTO
+-------------------------------------------------------------------------- */
+::selection {
+  background-color: var(--color-accent-primary);
+  color: var(--color-text-on-accent);
+}
+
+/* --------------------------------------------------------------------------
+   SCROLLBAR (Webkit — Chrome, Safari, Edge)
+   Sutil, coherente con la paleta. Sin quitar funcionalidad.
+-------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+
+/* --------------------------------------------------------------------------
+   CONTENEDOR PRINCIPAL
+   Utility reutilizable en todos los archivos.
+-------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* --------------------------------------------------------------------------
+   SEPARADORES
+-------------------------------------------------------------------------- */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   CÓDIGO INLINE
+-------------------------------------------------------------------------- */
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.875em;
+  background: var(--color-surface-alt);
+  color: var(--color-accent-primary);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+/* --------------------------------------------------------------------------
+   EYEBROW — label de sección pequeño en mayúsculas
+   Clase utilitaria usada antes de H2 en todas las secciones.
+-------------------------------------------------------------------------- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-primary);
+}
+
+/* --------------------------------------------------------------------------
+   VISUALLY HIDDEN — accesibilidad
+   Oculto visualmente pero legible por screen readers.
+-------------------------------------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

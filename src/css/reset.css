@@ -1,1 +1,125 @@
-/* reset.css — Fase 1 */
+/* ==========================================================================
+   RESET — Nerego Studio
+   Basado en Andy Bell (2023) + Josh Comeau, adaptado al proyecto.
+   ========================================================================== */
+
+/* Box sizing universal — antes que nada */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevenir inflación de fuente en iOS al rotar */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  /* scroll-behavior: smooth queda en manos de Lenis (main.js) */
+}
+
+/* Resetear márgenes por defecto */
+*  {
+  margin: 0;
+  padding: 0;
+}
+
+/* Permitir alturas en % desde la raíz */
+html,
+body {
+  height: 100%;
+}
+
+/* Mejorar renderizado de texto */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Quitar estilos de lista solo cuando tienen rol semántico */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+  padding: 0;
+}
+
+/* Imágenes y elementos reemplazados */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Evitar overflow de texto en contenedores */
+p,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* Balance en titulares (evita líneas huérfanas) */
+h1, h2, h3, h4 {
+  text-wrap: balance;
+}
+
+/* Párrafos largos: pretty evita la última palabra sola */
+p {
+  text-wrap: pretty;
+}
+
+/* Heredar fuente en elementos de formulario */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Eliminar estilos de botón */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Textareas sin rows no son mini */
+textarea:not([rows]) {
+  min-height: 8em;
+}
+
+/* Links sin clase heredan color del padre */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Quitar borde de imagen dentro de link en IE */
+a img {
+  border: 0;
+}
+
+/* Anchor targets con margen de scroll */
+:target {
+  scroll-margin-block: 6ex;
+}
+
+/* Quitar animaciones si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Aislamiento del root para stacking contexts */
+body > * {
+  isolation: isolate;
+}
