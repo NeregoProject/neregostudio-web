@@ -1,0 +1,45 @@
+# Sistema operativo
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Node (por si acaso, no usamos npm pero por coherencia)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backups de WordPress (nunca al repo)
+backup/wordpress-*
+backup/*.sql
+backup/*.zip
+backup/*.tar.gz
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporales
+*.tmp
+*.temp
+.cache/
+
+# Build output (por si se añade en el futuro)
+dist/
+build/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
