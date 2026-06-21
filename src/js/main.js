@@ -1,4 +1,4 @@
-// main.js — Header sticky, menú móvil, animación hero, parallax mockup
+// main.js — Lenis, header sticky, menú móvil, animación hero, parallax mockup
 
 (function () {
   'use strict';
@@ -9,6 +9,28 @@
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  // -------------------------------------------------------------------------
+  // LENIS — SMOOTH SCROLL
+  // Inicializa Lenis si está disponible. El RAF loop es necesario para que
+  // Lenis interpole el scroll en cada frame.
+  // -------------------------------------------------------------------------
+
+  function initLenis() {
+    if (typeof Lenis === 'undefined') return;
+
+    var lenis = new Lenis({
+      lerp: 0.08,
+      smoothWheel: true
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
   }
 
   // -------------------------------------------------------------------------
@@ -242,6 +264,7 @@
   // -------------------------------------------------------------------------
 
   document.addEventListener('DOMContentLoaded', function () {
+    initLenis();
     initStickyHeader();
     initMobileMenu();
     initHeroAnimation();

@@ -197,6 +197,31 @@ code {
 }
 
 /* --------------------------------------------------------------------------
+   SCROLL REVEAL — estado inicial y estado visible
+   JS añade .js-reveal a los elementos y .is-revealed al entrar al viewport.
+-------------------------------------------------------------------------- */
+.js-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity   600ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.js-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
    VISUALLY HIDDEN — accesibilidad
    Oculto visualmente pero legible por screen readers.
 -------------------------------------------------------------------------- */
