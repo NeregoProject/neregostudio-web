@@ -612,9 +612,115 @@
     <!-- <section id="demo"> ... </section> -->
 
     <!-- ==================================================================
-         SECCIÓN 6 — NICHOS — Fase 6
+         SECCIÓN 6 — NICHOS
     =================================================================== -->
-    <!-- <section id="nichos"> ... </section> -->
+    <section class="niches" id="nichos" aria-labelledby="niches-title">
+      <div class="container niches__inner">
+
+        <div class="niches__header">
+          <span class="eyebrow">Sectores</span>
+          <h2 class="niches__title" id="niches-title">Funciona para tu negocio</h2>
+          <p class="niches__lead">Para cualquier negocio local con agenda. Empieza por el tuyo.</p>
+        </div>
+
+        <div class="niches__grid">
+
+          <!-- Barberías — tarjeta destacada (2 cols en desktop) -->
+          <div class="niche-card niche-card--featured">
+            <div class="niche-card__badge">Nicho prioritario</div>
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Barberías</h3>
+            <p class="niche-card__tagline">Tu agenda llena, reservas sin llamadas</p>
+          </div>
+
+          <!-- Peluquerías -->
+          <a href="#contacto" class="niche-card">
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3c-4.97 0-9 3.185-9 7.115 0 2.557 1.522 4.82 3.889 6.115L6 21l3.47-1.66A10.5 10.5 0 0 0 12 19.5c4.97 0 9-3.185 9-7.115S16.97 3 12 3z"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Peluquerías</h3>
+            <p class="niche-card__tagline">Gestiona citas y reactiva clientas</p>
+          </a>
+
+          <!-- Clínicas dentales -->
+          <a href="#contacto" class="niche-card">
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Clínicas dentales</h3>
+            <p class="niche-card__tagline">Menos no-shows, más pacientes recurrentes</p>
+          </a>
+
+          <!-- Fisioterapia -->
+          <a href="#contacto" class="niche-card">
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Fisioterapia</h3>
+            <p class="niche-card__tagline">Agenda online y seguimiento de pacientes</p>
+          </a>
+
+          <!-- Restaurantes -->
+          <a href="#contacto" class="niche-card">
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/>
+                <path d="M7 2v20"/>
+                <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Restaurantes</h3>
+            <p class="niche-card__tagline">Reservas de mesa sin teléfono</p>
+          </a>
+
+          <!-- Estética -->
+          <a href="#contacto" class="niche-card">
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Estética &amp; Belleza</h3>
+            <p class="niche-card__tagline">Citas online y clientes que vuelven</p>
+          </a>
+
+          <!-- Transporte -->
+          <a href="#contacto" class="niche-card">
+            <div class="niche-card__icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"/>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <h3 class="niche-card__name">Transporte local</h3>
+            <p class="niche-card__tagline">Presupuestos y confirmaciones automáticas</p>
+          </a>
+
+        </div><!-- /niches__grid -->
+
+        <p class="niches__footnote">
+          ¿Tu sector no está aquí?
+          <a href="#contacto">Cuéntanos qué tienes</a> — si tiene agenda, tiene solución.
+        </p>
+
+      </div><!-- /container -->
+    </section>
 
     <!-- ==================================================================
          SECCIÓN 7 — PRECIOS — Fase 7
