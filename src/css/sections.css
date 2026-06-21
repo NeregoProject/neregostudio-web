@@ -247,11 +247,8 @@
   padding-bottom: var(--space-16);
   overflow: hidden;
 
-  /* Gradient mesh sutil: dos radiales en esquinas opuestas */
-  background:
-    radial-gradient(ellipse at 82% 12%, hsla(218, 47%, 19%, 0.055) 0%, transparent 52%),
-    radial-gradient(ellipse at 12% 88%, hsla(18,  63%, 52%, 0.045) 0%, transparent 52%),
-    var(--color-bg);
+  /* Gradiente oscuro: azul tinta → casi negro */
+  background: linear-gradient(160deg, #1A2B4A 0%, #0D1829 55%, #08101F 100%);
 }
 
 .hero__inner {
@@ -562,6 +559,10 @@
 
 /* ── Grid de 4 pilares iguales ── */
 
+.solution {
+  background: var(--color-dark-bg);
+}
+
 .solution__grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -578,6 +579,19 @@
   .solution__grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* Textos de cabecera sobre fondo oscuro */
+.solution .solution__header .eyebrow {
+  color: var(--color-accent-warm);
+}
+
+.solution .solution__title {
+  color: var(--color-dark-text-primary);
+}
+
+.solution .solution__lead {
+  color: var(--color-dark-text-secondary);
 }
 
 .pillar-card {
@@ -1555,6 +1569,183 @@
 
 .cta-form__error-msg a {
   color: var(--color-accent-warm);
+}
+
+/* ==========================================================================
+   HERO — OVERRIDES PARA FONDO OSCURO
+   ========================================================================== */
+
+/* Textos */
+.hero__eyebrow  { color: var(--color-accent-warm); }
+.hero__title    { color: var(--color-dark-text-primary); }
+.hero__subhead  { color: var(--color-dark-text-secondary); }
+.hero__microcopy { color: rgba(168, 180, 204, 0.60); }
+
+/* Botón secundario adaptado a fondo oscuro */
+.hero .btn--secondary {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: var(--color-dark-text-primary);
+  background-color: transparent;
+}
+
+.hero .btn--secondary:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.07);
+  color: var(--color-dark-text-primary);
+}
+
+/* Contenedor del mockup necesita position relative para las notificaciones */
+.hero__visual {
+  position: relative;
+}
+
+/* ==========================================================================
+   HERO — NOTIFICACIONES FLOTANTES
+   CSS puro: keyframe con stagger por delay.
+   ========================================================================== */
+
+@keyframes notif-appear {
+  0%   { opacity: 0; transform: translateY(10px) scale(0.96); }
+  12%  { opacity: 1; transform: translateY(0)    scale(1); }
+  72%  { opacity: 1; transform: translateY(0)    scale(1); }
+  100% { opacity: 0; transform: translateY(-8px) scale(0.98); }
+}
+
+.hero__notifications {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero__notifications {
+    display: block;
+  }
+}
+
+.hero__notif {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  padding: 9px 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.28),
+    0 1px 4px  rgba(0, 0, 0, 0.14);
+  opacity: 0;
+  animation: notif-appear 6s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  max-width: none;
+}
+
+.hero__notif-icon {
+  flex-shrink: 0;
+  font-style: normal;
+}
+
+.hero__notif--1 { bottom: 28%; left: -24px;  animation-delay: 0s; }
+.hero__notif--2 { bottom: 10%; right: -16px; animation-delay: 2s; }
+.hero__notif--3 { top: 22%;   right: -20px; animation-delay: 4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__notif { animation: none; opacity: 0; }
+}
+
+/* ==========================================================================
+   SECCIÓN DEMO — Tour visual de 3 pantallas
+   ========================================================================== */
+
+.demo {
+  background: var(--color-dark-bg);
+  padding-block: var(--section-gap);
+}
+
+.demo__header {
+  text-align: center;
+  max-width: 560px;
+  margin-inline: auto;
+  margin-bottom: var(--space-10);
+}
+
+.demo__header .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--color-accent-warm);
+}
+
+.demo__title {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-dark-text-primary);
+  margin-block: var(--space-3) var(--space-3);
+}
+
+.demo__lead {
+  font-size: var(--text-lg);
+  color: var(--color-dark-text-secondary);
+  max-width: none;
+}
+
+/* Grid de 3 pantallas */
+.demo__screens {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .demo__screens {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+}
+
+.demo__screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.demo__screen-mockup {
+  width: 100%;
+  max-width: 240px;
+}
+
+.demo__screen-mockup svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 24px 48px rgba(0, 0, 0, 0.40))
+    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.24));
+}
+
+.demo__screen-label {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-dark-text-primary);
+  text-align: center;
+  max-width: none;
+}
+
+.demo__screen-sublabel {
+  font-size: var(--text-sm);
+  color: var(--color-dark-text-secondary);
+  text-align: center;
+  max-width: none;
+  margin-top: calc(var(--space-1) * -1);
 }
 
 /* ==========================================================================

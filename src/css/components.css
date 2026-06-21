@@ -148,3 +148,22 @@
   color: var(--color-text-secondary);
   max-width: none;
 }
+
+/* --------------------------------------------------------------------------
+   PILLAR CARD — mockup visual grande (sustituye al icono de 52px)
+-------------------------------------------------------------------------- */
+
+.pillar-card__mockup {
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg);
+  margin-bottom: var(--space-2);
+  line-height: 0;
+}
+
+.pillar-card__mockup svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
