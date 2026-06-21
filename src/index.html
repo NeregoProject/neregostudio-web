@@ -961,11 +961,93 @@
     </section>
 
     <!-- ==================================================================
-         SECCIÓN 10 — CTA FINAL + FOOTER — Fase 7
+         SECCIÓN 10 — CTA FINAL
     =================================================================== -->
-    <!-- <section id="contacto"> ... </section> -->
+    <section class="cta-final" id="contacto" aria-labelledby="cta-final-title">
+      <div class="container cta-final__inner">
+
+        <span class="cta-final__eyebrow eyebrow">¿Empezamos?</span>
+
+        <h2 class="cta-final__title" id="cta-final-title">
+          ¿Quieres ver cómo quedaría<br>la web de tu negocio?
+        </h2>
+
+        <p class="cta-final__desc">
+          Consulta gratuita. Sin compromiso.<br>
+          Te mostramos cómo quedaría antes de decidir nada.
+        </p>
+
+        <div class="cta-final__actions">
+          <!-- TODO: sustituir href por enlace wa.me/ cuando esté confirmado el número -->
+          <a href="mailto:nerego.ai@gmail.com" class="btn btn--primary btn--lg cta-final__btn">
+            Habla con nosotros
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="cta-final__microcopy">
+          Respuesta en 24h · Confidencial · Sin permanencias
+        </p>
+
+      </div>
+    </section>
 
   </main>
+
+  <!-- ==================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="footer" aria-label="Pie de página">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="#inicio" class="footer__logo" aria-label="Nerego Studio — volver al inicio">
+          NEREGO STUDIO
+        </a>
+        <p class="footer__tagline">
+          Ecosistema digital para negocios locales en España.
+        </p>
+        <p class="footer__location">Murcia, España</p>
+      </div>
+
+      <div class="footer__contact">
+        <a href="mailto:nerego.ai@gmail.com" class="footer__link">
+          nerego.ai@gmail.com
+        </a>
+        <a
+          href="https://linkedin.com/in/joaquin-hernandez-54a5493b4"
+          class="footer__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer__legal">
+        <!-- Páginas legales pendientes de crear (Fase futura) -->
+        <a href="#" class="footer__legal-link">Aviso legal</a>
+        <a href="#" class="footer__legal-link">Política de privacidad</a>
+        <a href="#" class="footer__legal-link">Cookies</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copyright">
+          © 2026 Nerego Studio · Todos los derechos reservados
+        </p>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/main.js" defer></script>
 

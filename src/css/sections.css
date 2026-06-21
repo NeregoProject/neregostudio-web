@@ -1349,3 +1349,187 @@
   max-width: none;
   padding-top: var(--space-4);
 }
+
+/* ==========================================================================
+   SECCIÓN CTA FINAL
+   ========================================================================== */
+
+.cta-final {
+  background: var(--color-dark-bg);
+  padding-block: var(--section-gap);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow terracota sutil en la parte inferior */
+.cta-final::before {
+  content: '';
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 480px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 99, 58, 0.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-final__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.cta-final__eyebrow {
+  color: var(--color-accent-warm);
+}
+
+.cta-final__title {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+  color: var(--color-dark-text-primary);
+  max-width: 16ch;
+}
+
+.cta-final__desc {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-dark-text-secondary);
+  max-width: none;
+}
+
+.cta-final__actions {
+  margin-top: var(--space-2);
+}
+
+.cta-final__btn {
+  box-shadow: 0 8px 32px rgba(212, 99, 58, 0.30);
+}
+
+.cta-final__btn:hover {
+  box-shadow: 0 12px 40px rgba(212, 99, 58, 0.40);
+}
+
+.cta-final__microcopy {
+  font-size: var(--text-sm);
+  color: var(--color-dark-text-secondary);
+  opacity: 0.7;
+  max-width: none;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.footer {
+  background: #0F1015;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  padding-block: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: var(--space-10);
+    align-items: start;
+  }
+}
+
+/* Marca */
+.footer__logo {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: var(--tracking-wider);
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  margin-bottom: var(--space-3);
+  transition: opacity var(--duration-fast) var(--ease-in-out);
+}
+
+.footer__logo:hover {
+  opacity: 0.7;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.footer__tagline {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: rgba(255, 255, 255, 0.40);
+  max-width: 32ch;
+  margin-bottom: var(--space-1);
+}
+
+.footer__location {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.28);
+  max-width: none;
+}
+
+/* Contacto */
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.50);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+.footer__link:hover {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+/* Legal */
+.footer__legal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.footer__legal-link {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+.footer__legal-link:hover {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+}
+
+/* Barra inferior */
+.footer__bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-block: var(--space-4);
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  max-width: none;
+}
