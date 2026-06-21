@@ -1,1 +1,94 @@
-/* components.css — Fase 3+ */
+/* ==========================================================================
+   COMPONENTS — Nerego Studio
+   Botones y componentes reutilizables globales.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BOTONES
+-------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 13px 22px;
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color var(--duration-fast) var(--ease-in-out),
+    border-color     var(--duration-fast) var(--ease-in-out),
+    color            var(--duration-fast) var(--ease-in-out),
+    transform        var(--duration-normal) var(--ease-out-expo),
+    box-shadow       var(--duration-normal) var(--ease-out-expo);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Primario — terracota sólido */
+.btn--primary {
+  background-color: var(--color-accent-warm);
+  border-color: var(--color-accent-warm);
+  color: var(--color-text-on-accent);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-accent-warm-hover);
+  border-color: var(--color-accent-warm-hover);
+  box-shadow: 0 8px 24px rgba(212, 99, 58, 0.25);
+  color: var(--color-text-on-accent);
+  text-decoration: none;
+}
+
+/* Secundario — outline azul tinta */
+.btn--secondary {
+  background-color: transparent;
+  border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
+}
+
+.btn--secondary:hover {
+  border-color: var(--color-accent-primary);
+  background-color: var(--color-accent-primary-subtle);
+  color: var(--color-accent-primary);
+  text-decoration: none;
+}
+
+/* Ghost — sin fondo ni borde */
+.btn--ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--color-text-secondary);
+  padding-inline: var(--space-2);
+}
+
+.btn--ghost:hover {
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+/* Tamaños */
+.btn--sm {
+  padding: 9px 18px;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  padding: 16px 28px;
+  font-size: var(--text-lg);
+  border-radius: var(--radius-lg);
+}
