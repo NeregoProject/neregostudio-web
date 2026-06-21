@@ -27,20 +27,30 @@ estética, transporte local, academias.
 
 ### Qué ofrece Nerego Studio
 
-Tres productos concretos de automatización:
+Nerego monta el ecosistema digital completo para negocios locales. La pieza
+central es una **web profesional con sistema de reservas integrado** que el
+cliente puede usar desde el día 1. Sobre esa base se añaden capas de
+automatización por WhatsApp e inteligencia de negocio.
 
-1. **Sistema de Reactivación** — Recupera clientes inactivos con mensajes
-   automáticos por WhatsApp. El negocio deja de perder clientes que ya tenía.
-2. **Vendedor Digital 24/7** — Agente IA que responde, agenda citas y gestiona
-   reservas por WhatsApp a cualquier hora. El negocio no pierde clientes por no
-   contestar.
-3. **Cerebro de Negocio** — Informes semanales automáticos con datos reales del
-   negocio (citas, ingresos, clientes nuevos vs recurrentes). El dueño sabe qué
-   pasa sin preguntar.
+#### Los 4 pilares del servicio (en este orden de prioridad):
+
+1. **Web profesional + Reservas online** — Página web del negocio con sistema
+   de reservas integrado. El cliente elige servicio, día y hora desde la web,
+   sin llamar ni escribir. El dueño recibe la cita confirmada automáticamente.
+   **Esta es la puerta de entrada y el producto estrella.**
+2. **Sistema de Reactivación** — Recupera clientes inactivos con mensajes
+   automáticos por WhatsApp. "Luis no viene hace 2 meses → recibe un mensaje
+   → reserva desde la web esa misma tarde."
+3. **Vendedor Digital 24/7** — Agente IA en WhatsApp que responde preguntas,
+   sugiere servicios y redirige a la web para reservar. Funciona fuera de
+   horario, fines de semana, festivos.
+4. **Cerebro de Negocio** — Informes semanales automáticos con datos reales:
+   citas, ingresos, clientes nuevos vs recurrentes, horas pico. El dueño sabe
+   qué pasa sin preguntar.
 
 ### Estructura de precios (tres niveles)
 
-- **Esencial** (~120 €/mes) — Reactivación + WhatsApp básico.
+- **Esencial** (~120 €/mes) — Web + reservas + Reactivación.
 - **Acelerador** (~220 €/mes) — Todo lo anterior + Vendedor Digital 24/7.
 - **Premium** (~350 €/mes) — Todo lo anterior + Cerebro de Negocio + soporte
   prioritario.
@@ -48,21 +58,26 @@ Tres productos concretos de automatización:
 
 ### Entrada al cliente
 
-La web y una demo de WhatsApp son las puertas de entrada. No se vende un
-"diagnóstico" como producto separado aquí. Se ofrece una **consulta gratuita**
-donde se analiza el negocio y se propone el plan. El objetivo es que el dueño
-vea rápido cómo funcionaría en su negocio.
+La **web con reservas** es la puerta de entrada. Es lo primero que el dueño de
+negocio entiende y quiere. Se ofrece una **consulta gratuita** donde se muestra
+cómo quedaría su web con el sistema de reservas funcionando. El objetivo es que
+el dueño vea el resultado antes de decidir.
+
+WhatsApp es el **canal de comunicación y automatización**, no el sistema de
+reservas. Los clientes reservan en la web; WhatsApp se usa para recordatorios,
+reactivación y atención fuera de horario.
 
 ### Tono y lenguaje
 
 - **Directo, cálido, sin jerga técnica.** Habla como le hablarías al dueño de
   la barbería de tu barrio.
 - Nada de "IA", "automatización", "stack tecnológico" en el copy visible.
-  Usa: "tu negocio lleno", "clientes que vuelven solos", "reservas sin llamadas",
-  "saber qué pasa en tu negocio sin preguntar".
+  Usa: "tu negocio lleno", "clientes que vuelven solos", "reservas desde tu web",
+  "citas sin llamadas", "saber qué pasa en tu negocio sin preguntar".
 - **No uses "caso piloto"** — es un término que resta credibilidad.
-- Ejemplos siempre concretos: "Tu cliente Luis no viene hace 2 meses. Recibe
-  un WhatsApp recordándole que tiene un descuento. Reserva esa misma tarde."
+- Ejemplos siempre concretos: "Un cliente entra en tu web a las 23:00. Ve que
+  el martes a las 11:00 hay hueco. Reserva. Tú te enteras por la mañana con
+  la cita ya confirmada."
 
 Fundador: **Joaquín** · Murcia, España · nerego.ai@gmail.com
 
@@ -134,12 +149,19 @@ Código fuente en `src/`:
 
 La landing sigue este orden exacto. **No cambies el orden sin consultarme.**
 
-### Sección 1 — Header + Hero
+### Sección 1 — Header + Hero ✅ (construida, pendiente de ajuste)
 - Nav fijo con logo + CTA "Habla con nosotros"
-- Titular directo al dolor: "Tu negocio lleno, sin perseguir clientes"
-- Subtítulo que explique el qué (reservas, WhatsApp, clientes que vuelven)
-- CTA principal → WhatsApp o formulario de consulta
-- Elemento visual: mockup de móvil con conversación WhatsApp de barbería
+- Titular: "Tu negocio lleno, sin perseguir clientes"
+- Subtítulo: "Tus clientes reservan desde tu web, reciben recordatorios por
+  WhatsApp y los que se fueron vuelven solos."
+- CTA principal → formulario de consulta
+- Elemento visual: **DOS mockups** —
+  1. Pantalla de laptop/tablet mostrando la web del negocio con el calendario
+     de reservas (slots disponibles, selección de servicio y hora)
+  2. Móvil con WhatsApp mostrando recordatorio automático de cita
+  - El mockup de reservas web va delante/más grande (es el producto principal).
+  - El mockup de WhatsApp va detrás/más pequeño (es el complemento).
+  - Si el layout no permite los dos bien, prioriza el de reservas web.
 
 ### Sección 2 — Problema
 - 3–4 pains concretos del dueño de negocio local:
@@ -149,22 +171,26 @@ La landing sigue este orden exacto. **No cambies el orden sin consultarme.**
   - "Dependes de que te llamen para tener citas"
 - Tono empático, no agresivo. El dueño se ve reflejado.
 
-### Sección 3 — Solución (los 3 productos)
-- Cada producto con: nombre, qué hace en una frase, ejemplo real de barbería
-- Visual: icono o mockup SVG por producto
+### Sección 3 — Solución (los 4 pilares)
+- Cada pilar con: nombre, qué hace en una frase, ejemplo real de barbería
+- **Orden: Web+Reservas → Reactivación → Vendedor Digital → Cerebro de Negocio**
+- El pilar de Web+Reservas va destacado visualmente (es el producto estrella)
+- Visual: mockup SVG por pilar
 - No mencionar tecnología. Solo resultados.
 
 ### Sección 4 — Cómo funciona
 - 3 pasos simples:
-  1. "Analizamos tu negocio" (consulta gratuita)
-  2. "Montamos tu sistema" (en días, no meses)
-  3. "Tus clientes vuelven solos" (resultado)
+  1. "Te enseñamos cómo quedaría" (consulta gratuita con demo real)
+  2. "Montamos todo en días" (web + reservas + WhatsApp)
+  3. "Tu negocio funciona solo" (reservas automáticas, clientes que vuelven)
 - Aquí SÍ tiene sentido la numeración porque es una secuencia real.
 
 ### Sección 5 — Caso real / Demo
-- Cuando Hair Gallery esté cerrado: caso real con datos.
+- Cuando Hair Gallery esté cerrado: caso real con datos y capturas.
 - Mientras tanto: demo visual tipo "antes vs después" de una barbería.
-  Mockup de conversación WhatsApp mostrando reserva automática.
+  Mockup de la web de la barbería con calendario de reservas funcionando.
+  Ejemplo: "Antes: 6 llamadas perdidas al día. Después: reservas 24h desde
+  la web, 0 llamadas necesarias."
 
 ### Sección 6 — Nichos
 - Grid visual con los sectores: barberías (destacado), peluquerías, clínicas,
@@ -173,6 +199,7 @@ La landing sigue este orden exacto. **No cambies el orden sin consultarme.**
 
 ### Sección 7 — Precios
 - Los tres niveles (Esencial, Acelerador, Premium) con lo que incluye cada uno.
+- Esencial incluye web + reservas (dejarlo claro como base).
 - Setup como nota al pie, no como barrera.
 - CTA en cada plan → "Quiero este plan" / "Hablamos"
 
@@ -184,21 +211,22 @@ La landing sigue este orden exacto. **No cambies el orden sin consultarme.**
 ### Sección 9 — FAQ
 - 5–6 preguntas reales que haría un dueño de barbería:
   "¿Necesito saber de tecnología?", "¿Cuánto tarda en funcionar?",
-  "¿Mis clientes no se van a molestar con los mensajes?", etc.
+  "¿Puedo gestionar las reservas yo?", "¿Y si un cliente quiere cambiar
+  la cita?", "¿Mis clientes no se van a molestar con los mensajes?", etc.
 
 ### Sección 10 — CTA final + Footer
-- CTA de cierre potente: "¿Quieres ver cómo funcionaría en tu negocio?"
+- CTA de cierre: "¿Quieres ver cómo quedaría la web de tu negocio?"
 - Formulario corto o botón WhatsApp.
 - Footer con datos legales, contacto, redes.
 
 ---
 
-## SEO y Schema (Fase 11 del roadmap)
+## SEO y Schema (Fase 14 del roadmap)
 
 - Público: dueños de negocios locales en España buscando soluciones prácticas.
-- Keywords orientativas: "automatizar barbería", "reservas WhatsApp peluquería",
-  "recuperar clientes barbería", "gestión citas automática", "WhatsApp para
-  negocios locales".
+- Keywords orientativas: "web para barbería con reservas", "sistema reservas
+  peluquería", "página web barbería", "reservas online peluquería",
+  "recuperar clientes barbería", "gestión citas automática".
 - Schema pendiente: `LocalBusiness` / `ProfessionalService`.
 - Un solo `<h1>` por página, meta description, Open Graph.
 - `alt` descriptivo en todas las imágenes.
@@ -220,6 +248,9 @@ El roadmap va por fases (ver tabla en `README.md`).
 
 **Fase 0 — ✅ Completa** (estructura + git)
 **Fase 1 — ✅ Completa** (tokens.css, reset.css, base.css)
-**Fase actual → Fase 2** (Header + Hero)
+**Fase 2 — ✅ Completa** (Header + Hero — pendiente ajuste de mockups)
+**Fase actual → Fase 2.1** (Ajuste del hero: cambiar mockup WhatsApp por mockup
+de web con reservas como elemento principal + WhatsApp como complemento.
+Actualizar subtítulo.)
 
 **Pregúntame en qué fase estamos antes de generar secciones nuevas.**
