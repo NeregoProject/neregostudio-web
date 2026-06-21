@@ -1,6 +1,6 @@
 # Nerego Studio — Web Corporativa
 
-Sitio web estático de **Nerego Studio** (neregostudio.com), agencia consultora de IA y Ciberseguridad para negocios locales en España.
+Sitio web estático de **Nerego Studio** (neregostudio.com), agencia de automatización e IA para negocios locales en España. Nicho prioritario: barberías y peluquerías.
 
 Reemplaza la instalación anterior en WordPress + Elementor. Desplegado como HTML/CSS/JS estático en Easypanel + Nginx.
 
@@ -8,12 +8,20 @@ Reemplaza la instalación anterior en WordPress + Elementor. Desplegado como HTM
 
 ## Sobre el proyecto
 
-Nerego Studio ofrece dos servicios secuenciales:
+Nerego Studio ayuda a negocios locales (barberías, clínicas, restaurantes, fisioterapeutas) a llenar su agenda y recuperar clientes sin esfuerzo, usando WhatsApp automatizado e inteligencia artificial.
 
-1. **Diagnóstico Inteligente de Negocio** — Auditoría de procesos, oportunidades de IA y revisión de ciberseguridad. Entregable en Notion.
-2. **Implementación y orquestación** — Ejecución del roadmap. El cliente no toca nada técnico.
+### Tres productos concretos
 
-**Bonificación clave:** si el cliente contrata implementación en los 30 días posteriores al diagnóstico, el coste del diagnóstico se descuenta al 100%.
+1. **Sistema de Reactivación** — Recupera clientes inactivos con mensajes automáticos por WhatsApp.
+2. **Vendedor Digital 24/7** — Agente IA que responde, agenda citas y gestiona reservas por WhatsApp.
+3. **Cerebro de Negocio** — Informes semanales automáticos con datos reales del negocio.
+
+### Tres niveles de precio
+
+- **Esencial** (~120 €/mes) — Reactivación + WhatsApp básico.
+- **Acelerador** (~220 €/mes) — + Vendedor Digital 24/7.
+- **Premium** (~350 €/mes) — + Cerebro de Negocio + soporte prioritario.
+- Setup inicial: ~150 € (una vez).
 
 ---
 
@@ -22,7 +30,7 @@ Nerego Studio ofrece dos servicios secuenciales:
 - HTML5 semántico
 - CSS3 puro con custom properties (sin frameworks)
 - JavaScript vanilla (sin frameworks)
-- Lenis (smooth scroll, ~5KB)
+- Lenis (smooth scroll, ~5 KB)
 - Google Fonts vía `<link>` con `display=swap`
 - SVG inline para iconografía y mockups
 - Nginx para servir estático y gestionar redirecciones 301
@@ -35,6 +43,7 @@ Nerego Studio ofrece dos servicios secuenciales:
 ```
 neregostudio-web/
 ├── README.md
+├── CLAUDE.md                       # Instrucciones para Claude Code
 ├── .gitignore
 ├── docs/
 │   ├── 01-arquitectura.md          # Decisiones técnicas y convenciones
@@ -43,39 +52,39 @@ neregostudio-web/
 │   ├── 04-migracion-wordpress.md   # Plan de migración y swap de dominio
 │   ├── 05-redirecciones-301.md     # Mapa de URLs y config Nginx
 │   ├── 06-backup-wordpress.md      # Procedimiento de backup WP
-│   └── 07-verificacion-postmigracion.md  # Checklist post-swap
+│   └── 07-verificacion-postmigracion.md
 ├── src/
 │   ├── index.html                  # Landing principal
-│   ├── diagnostico.html            # Formulario de onboarding
+│   ├── diagnostico.html            # Formulario de consulta gratuita
 │   ├── blog/
-│   │   ├── index.html              # Listado de posts
+│   │   ├── index.html
 │   │   ├── responder-resenas-google.html
 │   │   └── citas-peluqueria-whatsapp.html
 │   ├── css/
 │   │   ├── reset.css               # Reset moderno (Andy Bell)
 │   │   ├── tokens.css              # Variables CSS (colores, tipos, espaciado)
-│   │   ├── base.css                # Estilos globales: body, headings, links
-│   │   ├── components.css          # Componentes reutilizables: botones, cards, badges
+│   │   ├── base.css                # Estilos globales
+│   │   ├── components.css          # Botones, cards, badges
 │   │   └── sections.css            # Secciones específicas de página
 │   ├── js/
-│   │   ├── main.js                 # Menú móvil, header sticky, inicialización Lenis
-│   │   ├── animations.js           # Intersection Observer, entradas, parallax
-│   │   ├── form.js                 # Validación y envío del formulario diagnóstico
-│   │   └── cookies.js              # Banner de cookies (localStorage)
+│   │   ├── main.js                 # Menú móvil, header sticky, Lenis
+│   │   ├── animations.js           # Intersection Observer, parallax
+│   │   ├── form.js                 # Validación y envío formulario
+│   │   └── cookies.js              # Banner de cookies
 │   └── assets/
 │       ├── images/
 │       ├── videos/
 │       └── svg/
-│           ├── mockups/            # Mockups SVG de los productos
-│           ├── icons/              # Iconos SVG de Lucide copiados inline
+│           ├── mockups/            # Mockups SVG (móvil, WhatsApp, dashboard)
+│           ├── icons/              # Iconos Lucide inline
 │           └── logos/              # Logo Nerego Studio
 ├── nginx/
-│   ├── nginx.conf                  # Configuración principal Nginx
-│   └── redirects.conf              # Redirecciones 301 desde URLs de WordPress
+│   ├── nginx.conf
+│   └── redirects.conf              # Redirecciones 301 desde WordPress
 ├── easypanel/
-│   └── deploy-config.md            # Configuración específica de Easypanel
+│   └── deploy-config.md
 └── backup/
-    └── .gitkeep                    # Carpeta de backups WP (excluida del repo)
+    └── .gitkeep
 ```
 
 ---
@@ -85,15 +94,15 @@ neregostudio-web/
 No hay proceso de build. Sirve `src/` directamente:
 
 ```bash
-# Opción 1: Python (disponible en cualquier sistema)
+# Python
 cd src
 python -m http.server 3000
 # → http://localhost:3000
 
-# Opción 2: Node (si tienes npx)
+# Node
 npx serve src -p 3000
 
-# Opción 3: VS Code Live Server
+# VS Code Live Server
 # Clic derecho en src/index.html → "Open with Live Server"
 ```
 
@@ -104,27 +113,26 @@ npx serve src -p 3000
 ### Staging
 1. Rama `main` → Easypanel proyecto `neregostudio-staging`
 2. Dominio: `staging.neregostudio.com`
-3. Ver `docs/03-deploy-easypanel.md` para pasos detallados
+3. Ver `docs/03-deploy-easypanel.md`
 
 ### Producción
 1. Swap de dominio en Easypanel: `neregostudio.com` al nuevo proyecto
-2. Ver `docs/04-migracion-wordpress.md` para el plan completo de migración
+2. Ver `docs/04-migracion-wordpress.md`
 
 ---
 
 ## Convenciones de código
 
-Ver `docs/01-arquitectura.md` para la referencia completa.
+Ver `docs/01-arquitectura.md` para referencia completa.
 
-**CSS:** BEM moderno. Clases en kebab-case. Bloques descriptivos del componente.
+**CSS:** BEM moderno, kebab-case, bloques descriptivos.
 ```
 .hero {}
 .hero__title {}
-.hero__cta {}
 .hero__cta--primary {}
 ```
 
-**JS:** Funciones nombradas, no arrow functions anónimas sueltas. Módulos por responsabilidad. Sin `console.log` en producción.
+**JS:** Funciones nombradas, módulos por responsabilidad, sin `console.log` en producción.
 
 **Git:** Commits convencionales (`feat:`, `fix:`, `docs:`, `chore:`, `style:`, `refactor:`).
 
@@ -135,37 +143,40 @@ Ver `docs/01-arquitectura.md` para la referencia completa.
 | Fase | Descripción | Estado |
 |------|-------------|--------|
 | 0 | Setup estructura + git | ✅ Completo |
-| 1 | Sistema de diseño (tokens, reset, base) | ⏳ Pendiente |
-| 2 | Header + Hero | ⏳ Pendiente |
-| 3 | Pain points + Ofertas + Bonificación | ⏳ Pendiente |
-| 4 | Cómo funciona + Por qué Nerego | ⏳ Pendiente |
-| 5 | Lo que construimos (4 mockups SVG) | ⏳ Pendiente |
-| 6 | Demo en vivo (Neregón embebido) | ⏳ Pendiente |
-| 7 | Casos + Sobre Joaquín + FAQ + Footer | ⏳ Pendiente |
-| 8 | JS y animaciones globales | ⏳ Pendiente |
-| 9 | diagnostico.html + formulario n8n | ⏳ Pendiente |
-| 10 | Blog (2 posts rescatados) | ⏳ Pendiente |
-| 11 | SEO y Schema markup | ⏳ Pendiente |
-| 12 | Setup Easypanel staging | ⏳ Pendiente |
-| 13 | Auditoría Lighthouse + ajustes | ⏳ Pendiente |
-| 14 | Backup WordPress completo | ⏳ Pendiente |
-| 15 | Nginx + redirecciones 301 | ⏳ Pendiente |
-| 16 | Swap de dominios | ⏳ Pendiente |
-| 17 | Verificación post-migración | ⏳ Pendiente |
-| 18 | Apagado de WordPress | ⏳ Pendiente |
+| 1 | Sistema de diseño (tokens, reset, base) | ✅ Completo |
+| 2 | Header + Hero | ⏳ En curso |
+| 3 | Sección Problema (pains del dueño) | ⏳ Pendiente |
+| 4 | Sección Solución (3 productos) | ⏳ Pendiente |
+| 5 | Sección Cómo funciona (3 pasos) | ⏳ Pendiente |
+| 6 | Sección Caso real / Demo (mockup WhatsApp) | ⏳ Pendiente |
+| 7 | Sección Nichos (grid de sectores) | ⏳ Pendiente |
+| 8 | Sección Precios (3 niveles) | ⏳ Pendiente |
+| 9 | Sección Sobre Nerego + FAQ | ⏳ Pendiente |
+| 10 | CTA final + Footer | ⏳ Pendiente |
+| 11 | JS y animaciones globales | ⏳ Pendiente |
+| 12 | Formulario consulta (form.js + webhook n8n) | ⏳ Pendiente |
+| 13 | Blog (2 posts rescatados) | ⏳ Pendiente |
+| 14 | SEO y Schema markup | ⏳ Pendiente |
+| 15 | Setup Easypanel staging | ⏳ Pendiente |
+| 16 | Auditoría Lighthouse + ajustes | ⏳ Pendiente |
+| 17 | Backup WordPress completo | ⏳ Pendiente |
+| 18 | Nginx + redirecciones 301 | ⏳ Pendiente |
+| 19 | Swap de dominios | ⏳ Pendiente |
+| 20 | Verificación post-migración | ⏳ Pendiente |
+| 21 | Apagado de WordPress | ⏳ Pendiente |
 
 ---
 
 ## Comandos útiles
 
 ```bash
-# Ver estado del repo
+# Estado del repo
 git status
 
 # Verificar redirecciones (cuando Nginx esté activo)
 curl -I https://neregostudio.com/2026/05/24/como-responder-resenas-de-google-automaticamente-sin-perder-tiempo/
 
-# Test del webhook n8n (datos dummy)
+# Test webhook n8n
 curl -X POST https://neregostudio.com/captacion-leads-v2 \
   -H "Content-Type: application/json" \
   -d '{"nombre":"Test","email":"test@test.com","negocio":"Test"}'
@@ -176,4 +187,4 @@ curl -X POST https://neregostudio.com/captacion-leads-v2 \
 ## Contacto
 
 **Joaquín** · Fundador Nerego Studio · Murcia, España
-nerego.ai@gmail.com · [LinkedIn](https://linkedin.com/in/joaquin-nerego)
+nerego.ai@gmail.com · [LinkedIn](https://linkedin.com/in/joaquin-hernandez-54a5493b4)
