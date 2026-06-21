@@ -874,19 +874,77 @@
           Te mostramos cómo quedaría antes de decidir nada.
         </p>
 
-        <div class="cta-final__actions">
-          <!-- TODO: sustituir href por enlace wa.me/ cuando esté confirmado el número -->
-          <a href="mailto:nerego.ai@gmail.com" class="btn btn--primary btn--lg cta-final__btn">
-            Habla con nosotros
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4"/>
-            </svg>
-          </a>
+        <form
+          class="cta-form"
+          id="contact-form"
+          novalidate
+          aria-label="Formulario de consulta gratuita"
+        >
+          <div class="cta-form__fields">
+
+            <div class="cta-form__field">
+              <label for="form-name" class="cta-form__label">Tu nombre</label>
+              <input
+                type="text"
+                id="form-name"
+                name="nombre"
+                class="cta-form__input"
+                placeholder="Nombre"
+                autocomplete="given-name"
+                required
+              >
+            </div>
+
+            <div class="cta-form__field">
+              <label for="form-phone" class="cta-form__label">WhatsApp o teléfono</label>
+              <input
+                type="tel"
+                id="form-phone"
+                name="telefono"
+                class="cta-form__input"
+                placeholder="+34 600 000 000"
+                autocomplete="tel"
+                required
+              >
+            </div>
+
+            <div class="cta-form__field">
+              <label for="form-business" class="cta-form__label">Tipo de negocio</label>
+              <input
+                type="text"
+                id="form-business"
+                name="negocio"
+                class="cta-form__input"
+                placeholder="Barbería, clínica, restaurante..."
+                required
+              >
+            </div>
+
+          </div><!-- /cta-form__fields -->
+
+          <button
+            type="submit"
+            class="btn btn--primary btn--lg cta-form__submit"
+            id="form-submit"
+          >
+            Enviar consulta
+          </button>
+
+          <p class="cta-form__privacy">
+            Tus datos solo se usan para contactarte. Sin spam.
+          </p>
+        </form>
+
+        <!-- Mensaje de éxito (oculto por defecto) -->
+        <div class="cta-form__success" id="form-success" hidden aria-live="polite">
+          <p class="cta-form__success-title">¡Recibido!</p>
+          <p class="cta-form__success-text">Te escribo en menos de 24h. Si prefieres, escríbeme tú directamente a <a href="mailto:nerego.ai@gmail.com">nerego.ai@gmail.com</a></p>
         </div>
 
-        <p class="cta-final__microcopy">
-          Respuesta en 24h · Confidencial · Sin permanencias
-        </p>
+        <!-- Mensaje de error (oculto por defecto) -->
+        <div class="cta-form__error-msg" id="form-error" hidden aria-live="assertive">
+          <p>Algo fue mal al enviar. Escríbeme directamente a <a href="mailto:nerego.ai@gmail.com">nerego.ai@gmail.com</a> y lo arreglamos.</p>
+        </div>
 
       </div>
     </section>
@@ -949,6 +1007,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1/bundled/lenis.min.js" defer></script>
   <script src="js/animations.js" defer></script>
   <script src="js/main.js" defer></script>
+  <script src="js/form.js" defer></script>
 
 </body>
 </html>
