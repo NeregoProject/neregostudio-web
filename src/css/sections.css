@@ -560,7 +560,7 @@
     drop-shadow(0 4px 12px rgba(0, 0, 0, 0.18));
 }
 
-/* ── Grid de 3 cards (Pilares 2-4) ── */
+/* ── Grid de 4 pilares iguales ── */
 
 .solution__grid {
   display: grid;
@@ -570,7 +570,13 @@
 
 @media (min-width: 768px) {
   .solution__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .solution__grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
