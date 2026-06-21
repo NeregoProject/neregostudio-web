@@ -428,3 +428,215 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
+
+/* ==========================================================================
+   SECCIÓN SOLUCIÓN — Los 4 pilares del servicio
+   ========================================================================== */
+
+.solution {
+  background: var(--color-surface);
+  padding-block: var(--section-gap);
+}
+
+.solution__header {
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: var(--space-10);
+}
+
+.solution__header .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.solution__title {
+  margin-block: var(--space-3) var(--space-3);
+}
+
+.solution__lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: none;
+}
+
+/* ── Tarjeta destacada (Pilar 1) ── */
+
+.solution__feature {
+  background: var(--color-dark-bg);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Glow sutil en esquina superior derecha */
+.solution__feature::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 99, 58, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .solution__feature {
+    grid-template-columns: 55fr 45fr;
+    padding: clamp(var(--space-8), 5vw, var(--space-12));
+  }
+}
+
+.solution__feature-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(212, 99, 58, 0.18);
+  border: 1px solid rgba(212, 99, 58, 0.40);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-accent-warm);
+  margin-bottom: var(--space-4);
+}
+
+.solution__feature-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1;
+  letter-spacing: var(--tracking-tighter);
+  color: rgba(255, 255, 255, 0.10);
+  margin-bottom: var(--space-2);
+}
+
+.solution__feature-title {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-dark-text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.solution__feature-desc {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-dark-text-secondary);
+  max-width: 44ch;
+  margin-bottom: var(--space-4);
+}
+
+.solution__feature-example {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: rgba(168, 180, 204, 0.70);
+  font-style: italic;
+  max-width: 44ch;
+}
+
+.solution__feature-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.solution__feature-svg {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  filter:
+    drop-shadow(0 20px 48px rgba(0, 0, 0, 0.32))
+    drop-shadow(0 4px 12px rgba(0, 0, 0, 0.18));
+}
+
+/* ── Grid de 3 cards (Pilares 2-4) ── */
+
+.solution__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .solution__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    transform    var(--duration-normal) var(--ease-out-expo),
+    box-shadow   var(--duration-normal) var(--ease-out-expo),
+    border-color var(--duration-fast)   var(--ease-in-out);
+}
+
+.pillar-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-border-strong);
+}
+
+.pillar-card__visual {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-primary-subtle);
+  color: var(--color-accent-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-card__number {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-muted);
+}
+
+.pillar-card__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+}
+
+.pillar-card__desc {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: none;
+}
+
+.pillar-card__example {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-muted);
+  font-style: italic;
+  max-width: none;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+}
