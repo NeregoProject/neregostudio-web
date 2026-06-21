@@ -379,3 +379,52 @@
     animation: none;
   }
 }
+
+/* ==========================================================================
+   SECCIÓN PROBLEMA — Pains del dueño de negocio local
+   ========================================================================== */
+
+.pains {
+  background: var(--color-surface-alt);
+  padding-block: var(--section-gap);
+}
+
+.pains__header {
+  text-align: center;
+  max-width: 600px;
+  margin-inline: auto;
+  margin-bottom: var(--space-10);
+}
+
+.pains__header .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.pains__title {
+  margin-block: var(--space-3) var(--space-3);
+}
+
+.pains__lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: none;
+}
+
+.pains__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .pains__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .pains__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
