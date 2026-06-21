@@ -3,8 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO básico ── -->
   <title>Nerego Studio — Tu negocio lleno, sin perseguir clientes</title>
-  <meta name="description" content="Tus clientes reservan solos, los que se fueron vuelven y tú sabes qué pasa en tu negocio sin preguntar. Todo desde WhatsApp, para barberías y negocios locales en España.">
+  <meta name="description" content="Reservas online, clientes que vuelven solos y tu negocio bajo control. Ecosistema digital completo para barberías y negocios locales en España. Consulta gratuita.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neregostudio.com/">
+
+  <!-- ── Open Graph (redes sociales) ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://neregostudio.com/">
+  <meta property="og:locale"      content="es_ES">
+  <meta property="og:site_name"   content="Nerego Studio">
+  <meta property="og:title"       content="Nerego Studio — Tu negocio lleno, sin perseguir clientes">
+  <meta property="og:description" content="Reservas online, clientes que vuelven solos y tu negocio bajo control. Ecosistema digital para barberías y negocios locales en España.">
+  <!-- TODO: añadir og:image cuando esté disponible -->
+  <!-- <meta property="og:image" content="https://neregostudio.com/assets/og-image.jpg"> -->
+
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Nerego Studio — Tu negocio lleno, sin perseguir clientes">
+  <meta name="twitter:description" content="Reservas online, clientes que vuelven solos y tu negocio bajo control. Ecosistema digital para barberías y negocios locales en España.">
+
+  <!-- ── JSON-LD: ProfessionalService ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Nerego Studio",
+    "url": "https://neregostudio.com",
+    "email": "nerego.ai@gmail.com",
+    "description": "Ecosistema digital completo para negocios locales en España. Web profesional con reservas online, sistema de reactivación de clientes, asistente WhatsApp 24/7 e informes semanales de negocio.",
+    "slogan": "Tu negocio lleno, sin perseguir clientes",
+    "founder": {
+      "@type": "Person",
+      "name": "Joaquín",
+      "jobTitle": "Fundador"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Murcia",
+      "addressRegion": "Región de Murcia",
+      "addressCountry": "ES"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "España"
+    },
+    "serviceType": [
+      "Web profesional con reservas online",
+      "Sistema de reactivación de clientes",
+      "Asistente WhatsApp 24/7",
+      "Informes semanales de negocio"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Planes Nerego Studio",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "name": "Esencial",
+          "price": "120",
+          "priceCurrency": "EUR",
+          "description": "Web con reservas online y sistema de reactivación de clientes."
+        },
+        {
+          "@type": "Offer",
+          "name": "Acelerador",
+          "price": "220",
+          "priceCurrency": "EUR",
+          "description": "Todo lo del plan Esencial más asistente WhatsApp activo 24h."
+        },
+        {
+          "@type": "Offer",
+          "name": "Premium",
+          "price": "350",
+          "priceCurrency": "EUR",
+          "description": "Todo lo del plan Acelerador más resumen semanal de negocio y soporte prioritario."
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- ── JSON-LD: FAQPage ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Necesito saber de tecnología?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Tú no tocas nada técnico. Joaquín se encarga de todo: la web, las reservas, los mensajes de WhatsApp. Cuando está listo, te lo entrega funcionando y te explica lo que necesitas saber para el día a día."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto tarda en funcionar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Normalmente entre 5 y 10 días desde la primera conversación. Depende de cuánto contenido haya que preparar para la web y de lo rápido que el cliente pase los materiales."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Puedo gestionar las reservas yo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Tienes acceso a un panel donde ves todas las citas, puedes cancelar, mover o añadir manualmente. Si prefieres no meterte en eso y dejar que el sistema funcione solo, también puedes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Y si un cliente quiere cambiar la cita?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El asistente de WhatsApp lo gestiona: le ofrece huecos disponibles y confirma el cambio automáticamente. Si por alguna razón no puede resolverlo, avisa al dueño del negocio para que lo gestione manualmente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Mis clientes no se van a molestar con los mensajes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los mensajes se envían con el nombre del negocio y de forma natural. No son mensajes masivos de publicidad: son mensajes personalizados, en el momento adecuado, a personas que ya fueron clientes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Esto funciona si trabajo solo o tengo un empleado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Es especialmente útil en ese caso. Cuanto menos equipo tienes, más necesitas que el sistema trabaje por ti. No tienes a nadie que conteste el WhatsApp fuera de horario, ni que llame a los clientes que no vuelven. El sistema hace exactamente eso."
+        }
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

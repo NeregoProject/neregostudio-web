@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neregostudio.com/sitemap.xml
+
+# Bloquear rutas de WordPress que puedan quedar indexadas tras la migración
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /wp-content/
+Disallow: /wp-includes/
