@@ -154,6 +154,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/sections.css">
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -1481,6 +1482,166 @@
   <script src="js/animations.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/form.js" defer></script>
+
+  <!-- ====================================================================
+       NEREGÓN — Chatbot flotante
+  ===================================================================== -->
+  <div id="n8n-chat"></div>
+
+  <style>
+    /* Posición y tamaño del widget */
+    #n8n-chat,
+    .n8n-chat-window,
+    .chat-window {
+      max-width: 400px !important;
+      right: 20px !important;
+      left: auto !important;
+      overflow: hidden !important;
+    }
+
+    /* Oculta el icono SVG por defecto del botón */
+    .chat-window-toggle svg {
+      display: none !important;
+    }
+
+    /* Botón flotante — robot Neregón con paleta del sistema */
+    .chat-window-toggle {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='-60 -60 120 120'%3E%3Ccircle cx='0' cy='0' r='58' fill='%231A2B4A' stroke='%23D4633A' stroke-width='2.5'/%3E%3Ccircle cx='0' cy='0' r='48' fill='%23243A62' stroke='%23BE4F29' stroke-width='1'/%3E%3Crect x='-22' y='-24' width='44' height='34' rx='7' fill='%230D1829' stroke='%23D4633A' stroke-width='1.8'/%3E%3Ccircle cx='-11' cy='-9' r='7' fill='%231A2B4A' stroke='%23D4633A' stroke-width='1.5'/%3E%3Ccircle cx='-11' cy='-9' r='3.5' fill='%23D4633A'/%3E%3Ccircle cx='-11' cy='-9' r='1.5' fill='%23ffffff'/%3E%3Ccircle cx='11' cy='-9' r='7' fill='%231A2B4A' stroke='%23D4633A' stroke-width='1.5'/%3E%3Ccircle cx='11' cy='-9' r='3.5' fill='%23D4633A'/%3E%3Ccircle cx='11' cy='-9' r='1.5' fill='%23ffffff'/%3E%3Crect x='-14' y='7' width='28' height='5' rx='2.5' fill='%230D1829' stroke='%23D4633A' stroke-width='1'/%3E%3Crect x='-4' y='-38' width='8' height='14' rx='2' fill='%230D1829' stroke='%23D4633A' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='-42' r='5' fill='%23243A62' stroke='%23D4633A' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='-42' r='2' fill='%23D4633A'/%3E%3C/svg%3E") !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      background-size: 85% !important;
+      animation: robotFloat 3s ease-in-out infinite !important;
+    }
+
+    .chat-window-toggle:hover {
+      transform: scale(1.1) !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    @keyframes robotFloat {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Burbuja de mensajes rotativos */
+    #neregon-bubble {
+      position: fixed;
+      bottom: 90px;
+      right: 24px;
+      background: #1A2B4A;
+      border: 1.5px solid #D4633A;
+      color: #D4633A;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 16px 16px 4px 16px;
+      max-width: 200px;
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+      z-index: 99999;
+    }
+
+    #neregon-bubble.visible {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    #neregon-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 14px;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-top: 8px solid #D4633A;
+    }
+  </style>
+
+  <!-- Chat init -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://proyecto-demo-n8n.6lb6ds.easypanel.host/webhook/be7e7966-290a-4a0c-934a-7bc4cadb5d15/chat',
+      webhookConfig: { method: 'POST', headers: {} },
+      target: '#n8n-chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      metadata: {},
+      showWelcomeScreen: true,
+      defaultLanguage: 'es',
+      initialMessages: [
+        'Hola🤚!',
+        'Mi nombre es Neregon, asistente virtual de Nerego Studio, en que puedo ayudarte hoy?'
+      ],
+      i18n: {
+        es: {
+          title: 'Hola!',
+          subtitle: 'Comenzar chat, te atendemos 24/7.',
+          footer: '',
+          getStarted: 'Nueva Conversación',
+          inputPlaceholder: 'Escribe tu consulta..',
+        },
+      },
+    });
+  </script>
+
+  <!-- Burbuja flotante con mensajes rotativos -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var messages = [
+        '👋 ¡Hola! ¿En qué puedo ayudarte?',
+        '🤖 Pregúntame lo que quieras',
+        '⚡ Automatiza tu negocio con IA',
+        '💬 Estoy aquí 24/7',
+        '🚀 ¿Hablamos de tu negocio?'
+      ];
+
+      var bubble = document.createElement('div');
+      bubble.id = 'neregon-bubble';
+      document.body.appendChild(bubble);
+
+      var index = 0;
+      var chatAbierto = false;
+
+      function showBubble() {
+        if (chatAbierto) return;
+        bubble.textContent = messages[index];
+        bubble.classList.add('visible');
+        index = (index + 1) % messages.length;
+        setTimeout(function () { bubble.classList.remove('visible'); }, 3500);
+      }
+
+      setTimeout(function () {
+        showBubble();
+        setInterval(showBubble, 8000);
+      }, 2000);
+
+      document.addEventListener('mouseover', function (e) {
+        if (chatAbierto) return;
+        if (e.target.closest('.chat-window-toggle')) {
+          bubble.textContent = '👋 ¡Hola! ¿En qué puedo ayudarte?';
+          bubble.classList.add('visible');
+          setTimeout(function () { bubble.classList.remove('visible'); }, 3000);
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (e.target.closest('.chat-window-toggle')) {
+          chatAbierto = !chatAbierto;
+          if (chatAbierto) { bubble.classList.remove('visible'); }
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
