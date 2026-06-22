@@ -243,7 +243,7 @@
 
 .hero {
   position: relative;
-  padding-top: calc(72px + var(--space-10));   /* header-height + aire generoso */
+  padding-top: calc(72px + var(--space-4));    /* header-height + aire ajustado */
   padding-bottom: var(--space-16);
   overflow: hidden;
 
