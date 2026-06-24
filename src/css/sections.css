@@ -948,6 +948,7 @@
    ========================================================================== */
 
 .pricing {
+  display: none; /* TEMPORAL — quitar para reactivar */
   background: var(--color-surface-alt);
   padding-block: var(--section-gap);
 }
@@ -1166,6 +1167,7 @@
    ========================================================================== */
 
 .about {
+  display: none; /* TEMPORAL — quitar para reactivar */
   background: var(--color-surface);
   padding-block: var(--section-gap);
 }
