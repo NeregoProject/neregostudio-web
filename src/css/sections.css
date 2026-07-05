@@ -948,6 +948,7 @@
    ========================================================================== */
 
 .pricing {
+  display: none;
   background: var(--color-surface-alt);
   padding-block: var(--section-gap);
 }
