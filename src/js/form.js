@@ -12,10 +12,11 @@
   // -------------------------------------------------------------------------
 
   function initContactForm() {
-    var form     = document.getElementById('contact-form');
+    var form      = document.getElementById('contact-form');
     var submitBtn = document.getElementById('form-submit');
     var successEl = document.getElementById('form-success');
     var errorEl   = document.getElementById('form-error');
+    var consentEl = document.getElementById('form-consent');
     if (!form || !submitBtn) return;
 
     var inputs = form.querySelectorAll('.cta-form__input');
@@ -44,6 +45,9 @@
         }
       });
       if (hasError) return;
+
+      // Validación: consentimiento RGPD obligatorio
+      if (consentEl && !consentEl.checked) return;
 
       // Estado de carga
       submitBtn.disabled = true;
