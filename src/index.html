@@ -151,6 +151,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/assets/img/hero-bg.png" type="image/png">
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
 
@@ -239,9 +240,10 @@
          SECCIÓN 1 — HERO
     =================================================================== -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
-      <div class="container hero__inner">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
 
-        <!-- Contenido textual -->
+      <div class="container hero__inner">
         <div class="hero__content">
           <span class="hero__eyebrow eyebrow">Para negocios locales en España</span>
 
@@ -270,190 +272,7 @@
             Sin compromiso · Respuesta en 24h · Primera consulta gratuita
           </p>
         </div>
-
-        <!-- Mockup compuesto (SVG inline) -->
-        <div class="hero__visual" aria-hidden="true">
-
-          <!-- Notificaciones flotantes (CSS puro, sin JS) -->
-          <div class="hero__notifications">
-            <p class="hero__notif hero__notif--1">
-              <span class="hero__notif-icon">✓</span>
-              Nuevo cliente: Marcos ha contactado
-            </p>
-            <p class="hero__notif hero__notif--2">
-              <span class="hero__notif-icon">📩</span>
-              Recordatorio enviado a Laura
-            </p>
-            <p class="hero__notif hero__notif--3">
-              <span class="hero__notif-icon">⭐</span>
-              Nueva reseña de Ana García
-            </p>
-          </div>
-
-          <svg
-            class="hero__mockup-svg"
-            viewBox="0 0 450 510"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Web profesional con asistente IA y automatización para negocios locales"
-          >
-            <defs>
-              <filter id="tablet-shadow" x="-5%" y="-4%" width="118%" height="114%">
-                <feDropShadow dx="6" dy="12" stdDeviation="20" flood-color="#0F0F0F" flood-opacity="0.14"/>
-                <feDropShadow dx="0" dy="3"  stdDeviation="6"  flood-color="#0F0F0F" flood-opacity="0.07"/>
-              </filter>
-              <filter id="wa-shadow" x="-12%" y="-5%" width="132%" height="114%">
-                <feDropShadow dx="0" dy="8"  stdDeviation="14" flood-color="#0F0F0F" flood-opacity="0.10"/>
-              </filter>
-            </defs>
-
-            <!-- ============================================================
-                 TELÉFONO — WhatsApp recordatorio (detrás, secundario)
-            ============================================================= -->
-            <!-- Cuerpo -->
-            <rect x="225" y="60" width="165" height="370" rx="28" fill="#1C1C1E" filter="url(#wa-shadow)"/>
-            <!-- Botón lateral derecho -->
-            <rect x="390" y="148" width="4" height="54" rx="2" fill="#111111"/>
-            <!-- Pantalla -->
-            <rect x="234" y="78"  width="147" height="334" rx="20" fill="#F3F3EF"/>
-
-            <!-- Header del chat -->
-            <rect x="234" y="78"  width="147" height="52" fill="#1A2B4A"/>
-            <circle cx="252" cy="104" r="14" fill="#EEF1F8" fill-opacity="0.85"/>
-            <text x="252" y="108" text-anchor="middle" font-family="'Inter',sans-serif" font-size="10" font-weight="700" fill="#1A2B4A">EL</text>
-            <text x="271" y="99"  font-family="'Bricolage Grotesque',sans-serif" font-size="11" font-weight="700" fill="#FFFFFF">Estudio Look</text>
-            <circle cx="272" cy="113" r="3" fill="#22C55E"/>
-            <text x="278" y="116" font-family="'Inter',sans-serif" font-size="9" fill="rgba(255,255,255,0.65)">En línea</text>
-
-            <!-- Burbuja recordatorio (derecha → lado visible) -->
-            <rect x="246" y="148" width="126" height="84" rx="12" fill="#EEF1F8"/>
-            <text font-family="'Inter',sans-serif" font-size="10" fill="#1A2B4A" text-anchor="end">
-              <tspan x="366" y="165">⏰ Recordatorio</tspan>
-              <tspan x="366" dy="15">Cita mañana</tspan>
-              <tspan x="366" dy="15">a las 17:00 en</tspan>
-              <tspan x="366" dy="15">Estudio Look.</tspan>
-            </text>
-            <path d="M356 230 L359 233 L365 226" stroke="#1A2B4A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-            <path d="M351 230 L354 233 L360 226" stroke="#1A2B4A" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-            <text x="372" y="232" text-anchor="end" font-family="'Inter',sans-serif" font-size="8" fill="#9C9C98">14:23</text>
-
-            <!-- Respuesta del cliente -->
-            <rect x="234" y="248" width="96" height="30" rx="12" fill="#EEEEEA"/>
-            <text x="244" y="267" font-family="'Inter',sans-serif" font-size="9.5" fill="#0F0F0F">¡Ahí estaré! ✓</text>
-
-            <!-- Barra de input -->
-            <rect x="234" y="384" width="147" height="28" fill="#EEEEEA"/>
-            <rect x="240" y="389" width="100" height="18" rx="9" fill="#FFFFFF"/>
-            <circle cx="363" cy="398" r="11" fill="#D4633A"/>
-            <path d="M358 398 L368 398 M364 393 L369 398 L364 403" stroke="#FFFFFF" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-            <!-- ============================================================
-                 TABLETA — Web profesional (delante, principal)
-            ============================================================= -->
-            <!-- Cuerpo -->
-            <rect x="5" y="8" width="308" height="486" rx="16" fill="#1C1C1E" filter="url(#tablet-shadow)"/>
-            <!-- Cámara frontal -->
-            <circle cx="159" cy="15" r="2.5" fill="#2A2A2A"/>
-            <!-- Pantalla -->
-            <rect x="14" y="22" width="290" height="464" rx="8" fill="#FAFAF7"/>
-
-            <!-- — NAVBAR — -->
-            <rect x="14" y="22" width="290" height="36" fill="#1A2B4A"/>
-            <text x="28" y="44" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Estudio Look</text>
-            <line x1="278" y1="36" x2="294" y2="36" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="278" y1="40" x2="294" y2="40" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-            <line x1="278" y1="44" x2="290" y2="44" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
-
-            <!-- — TÍTULO — -->
-            <text x="28" y="73" font-family="'Bricolage Grotesque',sans-serif" font-size="15" font-weight="800" fill="#0F0F0F">Contacta ahora</text>
-            <text x="28" y="89" font-family="'Inter',sans-serif" font-size="10" fill="#5C5C5A">Elige servicio, día y hora — sin llamar</text>
-
-            <!-- — SELECTOR DE SERVICIO — -->
-            <rect x="22" y="100" width="274" height="30" rx="8" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="32"  y="120" font-family="sans-serif" font-size="13" fill="#5C5C5A">✂</text>
-            <text x="50"  y="120" font-family="'Inter',sans-serif" font-size="10.5" fill="#0F0F0F">Corte + arreglo de barba</text>
-            <path d="M283 112 L288 116 L283 120" stroke="#9C9C98" stroke-width="1.25" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-            <!-- Divisor -->
-            <line x1="14" y1="138" x2="304" y2="138" stroke="#E4E4DF" stroke-width="0.75"/>
-
-            <!-- — MES — -->
-            <path d="M27 155 L22 159 L27 163" stroke="#5C5C5A" stroke-width="1.25" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="159" y="162" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" font-weight="600" fill="#0F0F0F">junio 2025</text>
-            <path d="M291 155 L296 159 L291 163" stroke="#5C5C5A" stroke-width="1.25" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-
-            <!-- — DÍAS (centros: 45 90 135 180 225 270) — -->
-            <text x="45"  y="180" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#9C9C98">L</text>
-            <text x="90"  y="180" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#9C9C98">M</text>
-            <text x="135" y="180" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" font-weight="700" fill="#D4633A">X</text>
-            <text x="180" y="180" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#9C9C98">J</text>
-            <text x="225" y="180" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#9C9C98">V</text>
-            <text x="270" y="180" text-anchor="middle" font-family="'Inter',sans-serif" font-size="9.5" fill="#9C9C98">S</text>
-            <!-- Círculo del día seleccionado -->
-            <circle cx="135" cy="199" r="16" fill="#D4633A"/>
-            <!-- Números -->
-            <text x="45"  y="204" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12" fill="#5C5C5A">23</text>
-            <text x="90"  y="204" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12" fill="#5C5C5A">24</text>
-            <text x="135" y="204" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">25</text>
-            <text x="180" y="204" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12" fill="#5C5C5A">26</text>
-            <text x="225" y="204" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12" fill="#5C5C5A">27</text>
-            <text x="270" y="204" text-anchor="middle" font-family="'Inter',sans-serif" font-size="12" fill="#9C9C98">28</text>
-
-            <!-- Divisor -->
-            <line x1="14" y1="222" x2="304" y2="222" stroke="#E4E4DF" stroke-width="0.75"/>
-
-            <!-- — HORAS DISPONIBLES — -->
-            <text x="22" y="240" font-family="'Inter',sans-serif" font-size="10" font-weight="600" fill="#5C5C5A">Horas disponibles · mié 25</text>
-
-            <!-- Slots: cols x=22/116/210, w=86, h=28, rx=6 -->
-            <!-- Row 1 (y=250): 09:00 ocupado · 09:30 libre · 10:00 libre -->
-            <rect x="22"  y="250" width="86" height="28" rx="6" fill="#F3F3EF"/>
-            <text x="65"  y="268" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#9C9C98">09:00</text>
-            <rect x="116" y="250" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="159" y="268" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">09:30</text>
-            <rect x="210" y="250" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="253" y="268" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">10:00</text>
-
-            <!-- Row 2 (y=286): 10:30 SELECCIONADO · 11:00 libre · 11:30 ocupado -->
-            <rect x="22"  y="286" width="86" height="28" rx="6" fill="#D4633A"/>
-            <text x="65"  y="304" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" font-weight="600" fill="#FFFFFF">10:30</text>
-            <rect x="116" y="286" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="159" y="304" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">11:00</text>
-            <rect x="210" y="286" width="86" height="28" rx="6" fill="#F3F3EF"/>
-            <text x="253" y="304" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#9C9C98">11:30</text>
-
-            <!-- Row 3 (y=322): 16:00 · 16:30 · 17:00 libres -->
-            <rect x="22"  y="322" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="65"  y="340" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">16:00</text>
-            <rect x="116" y="322" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="159" y="340" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">16:30</text>
-            <rect x="210" y="322" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="253" y="340" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">17:00</text>
-
-            <!-- Row 4 (y=358): 17:30 ocupado · 18:00 libre · 18:30 ocupado -->
-            <rect x="22"  y="358" width="86" height="28" rx="6" fill="#F3F3EF"/>
-            <text x="65"  y="376" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#9C9C98">17:30</text>
-            <rect x="116" y="358" width="86" height="28" rx="6" fill="#FFFFFF" stroke="#E4E4DF" stroke-width="1"/>
-            <text x="159" y="376" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#0F0F0F">18:00</text>
-            <rect x="210" y="358" width="86" height="28" rx="6" fill="#F3F3EF"/>
-            <text x="253" y="376" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" fill="#9C9C98">18:30</text>
-
-            <!-- — RESUMEN SELECCIÓN — -->
-            <rect x="22" y="396" width="274" height="36" rx="8" fill="#EEF1F8"/>
-            <circle cx="37" cy="414" r="9" fill="#D4633A" fill-opacity="0.12"/>
-            <path d="M33 414 L36 417 L42 410" stroke="#D4633A" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="52" y="410" font-family="'Inter',sans-serif" font-size="10" font-weight="600" fill="#1A2B4A">Mié 25 jun · 10:30</text>
-            <text x="52" y="424" font-family="'Inter',sans-serif" font-size="9.5" fill="#5C5C5A">Corte + arreglo de barba</text>
-
-            <!-- — BOTÓN CONFIRMAR — -->
-            <rect x="22" y="442" width="274" height="34" rx="8" fill="#D4633A"/>
-            <text x="159" y="463" text-anchor="middle" font-family="'Bricolage Grotesque',sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Enviar consulta →</text>
-
-          </svg>
-        </div><!-- /hero__visual -->
-
-      </div><!-- /hero__inner -->
+      </div>
     </section>
 
     <!-- ==================================================================
