@@ -258,12 +258,18 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  background-image: url('/assets/img/hero-bg.png');
+  background-image: url('/assets/img/hero-bg.webp');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;
   animation: hero-breathe 24s ease-in-out infinite alternate;
   will-change: transform;
+}
+
+@supports (background-image: image-set(url("test.avif") type("image/avif"))) {
+  .hero__bg {
+    background-image: image-set(url('/assets/img/hero-bg.avif') type('image/avif'));
+  }
 }
 
 .hero__overlay {
