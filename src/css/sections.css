@@ -1828,3 +1828,82 @@
   text-align: center;
   max-width: none;
 }
+
+/* ==========================================================================
+   SECCIÓN — CASO REAL
+   ========================================================================== */
+
+.case {
+  background: var(--color-surface-alt);
+  padding-block: var(--section-gap);
+}
+
+.case__header {
+  max-width: 46rem;
+  margin-bottom: var(--space-5);
+}
+
+.case__lead {
+  color: var(--color-text-secondary);
+}
+
+.case__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.case-block__title {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-1);
+}
+
+.case-block__text {
+  color: var(--color-text-secondary);
+}
+
+/* Cifras del caso */
+.case__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1.25rem;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.case-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.case-stat__number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 1;
+}
+
+.case-stat__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-wrap: balance;
+}
+
+.case__footnote {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+/* Foto de Joaquín en «Sobre mí» */
+.about__photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: var(--space-3);
+  display: block;
+}
