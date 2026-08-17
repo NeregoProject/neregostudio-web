@@ -1,1 +1,196 @@
-<!-- blog/index.html — Fase 10 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- ── SEO básico ── -->
+  <title>Blog | Nerego Studio</title>
+  <meta name="description" content="Artículos sobre posicionamiento en Google y presencia digital para negocios locales, escritos por Joaquín, fundador de Nerego Studio.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neregostudio.com/blog/">
+
+  <!-- ── Open Graph (redes sociales) ── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://neregostudio.com/blog/">
+  <meta property="og:locale"      content="es_ES">
+  <meta property="og:site_name"   content="Nerego Studio">
+  <meta property="og:title"       content="Blog | Nerego Studio">
+  <meta property="og:description" content="Artículos sobre posicionamiento en Google y presencia digital para negocios locales, escritos por Joaquín, fundador de Nerego Studio.">
+  <meta property="og:image" content="https://neregostudio.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nerego Studio — Blog">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <!-- ── Analytics ── -->
+  <script defer src="https://analytics.neregostudio.com/script.js" data-website-id="5004f477-d71f-4e2b-853f-76dc89b01cde"></script>
+</head>
+<body>
+
+  <!-- =====================================================================
+       HEADER
+  ====================================================================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <a href="../index.html#inicio" class="header__logo" aria-label="Nerego Studio — volver al inicio">
+        NEREGO STUDIO
+      </a>
+
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="header__nav-list" role="list">
+          <li><a href="../index.html#solucion"      class="header__nav-link">Lo que hago</a></li>
+          <li><a href="../index.html#como-funciona" class="header__nav-link">Cómo trabajo</a></li>
+          <li><a href="../index.html#caso"          class="header__nav-link">Caso real</a></li>
+          <li><a href="../index.html#sobre-mi"      class="header__nav-link">Sobre mí</a></li>
+          <li><a href="../index.html#faq"           class="header__nav-link">FAQ</a></li>
+        </ul>
+        <a href="../index.html#contacto" class="btn btn--primary btn--sm">Auditoría gratuita</a>
+      </nav>
+
+      <button
+        class="header__hamburger"
+        id="hamburger-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       OVERLAY MÓVIL
+  ====================================================================== -->
+  <div
+    class="nav-overlay"
+    id="mobile-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú de navegación"
+    aria-hidden="true"
+  >
+    <nav aria-label="Menú móvil">
+      <ul class="nav-overlay__list" role="list">
+        <li class="nav-overlay__item">
+          <a href="../index.html#solucion" class="nav-overlay__link">Lo que hago</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#como-funciona" class="nav-overlay__link">Cómo trabajo</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#caso" class="nav-overlay__link">Caso real</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#sobre-mi" class="nav-overlay__link">Sobre mí</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#faq" class="nav-overlay__link">FAQ</a>
+        </li>
+      </ul>
+      <a href="../index.html#contacto" class="btn btn--primary btn--lg nav-overlay__cta">
+        Auditoría gratuita
+      </a>
+    </nav>
+  </div>
+
+  <!-- Sentinel para detectar scroll sin listeners continuos -->
+  <div class="scroll-sentinel" id="scroll-sentinel" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ==================================================================
+         BLOG — Índice
+    =================================================================== -->
+    <section class="blog" id="blog" aria-labelledby="blog-title">
+      <div class="container blog__inner">
+
+        <h1 class="blog__title" id="blog-title">Blog</h1>
+
+        <article class="blog-card">
+          <h2 class="blog-card__title">Cómo responder a las reseñas de Google (y por qué deberías hacerlo siempre)</h2>
+          <p class="blog-card__excerpt">La mayoría de negocios locales tratan las reseñas como algo que reciben, no como algo que gestionan.</p>
+          <a href="responder-resenas-google.html" class="blog-card__link">Leer más →</a>
+        </article>
+
+      </div><!-- /container -->
+    </section>
+
+  </main>
+
+  <!-- ==================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="footer" aria-label="Pie de página">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="../index.html#inicio" class="footer__logo" aria-label="Nerego Studio — volver al inicio">
+          NEREGO STUDIO
+        </a>
+        <p class="footer__tagline">
+          Ecosistema digital para negocios locales en España.
+        </p>
+        <p class="footer__location">Murcia, España</p>
+      </div>
+
+      <div class="footer__contact">
+        <a href="mailto:neregostudio@gmail.com" class="footer__link">
+          neregostudio@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/joaquin-hernandez-neregostudio/"
+          class="footer__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer__legal">
+        <a href="/aviso-legal.html" class="footer__legal-link">Aviso legal</a>
+        <a href="/politica-privacidad.html" class="footer__legal-link">Política de privacidad</a>
+        <a href="/politica-cookies.html" class="footer__legal-link">Cookies</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copyright">
+          © 2026 Nerego Studio · Todos los derechos reservados
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/bundled/lenis.min.js" defer></script>
+  <script src="../js/animations.js" defer></script>
+  <script src="../js/main.js" defer></script>
+
+</body>
+</html>

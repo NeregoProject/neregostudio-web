@@ -1,1 +1,315 @@
-<!-- blog/responder-resenas-google.html — Fase 10 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <!-- ── SEO básico ── -->
+  <title>Cómo responder a las reseñas de Google | Nerego Studio</title>
+  <meta name="description" content="Responder a las reseñas de Google ayuda a tu posicionamiento local y genera confianza. Te explico cómo hacerlo bien, con ejemplos reales.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://neregostudio.com/blog/responder-resenas-google.html">
+
+  <!-- ── Open Graph (redes sociales) ── -->
+  <meta property="og:type"        content="article">
+  <meta property="og:url"         content="https://neregostudio.com/blog/responder-resenas-google.html">
+  <meta property="og:locale"      content="es_ES">
+  <meta property="og:site_name"   content="Nerego Studio">
+  <meta property="og:title"       content="Cómo responder a las reseñas de Google | Nerego Studio">
+  <meta property="og:description" content="Responder a las reseñas de Google ayuda a tu posicionamiento local y genera confianza. Te explico cómo hacerlo bien, con ejemplos reales.">
+  <meta property="og:image" content="https://neregostudio.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nerego Studio — Cómo responder a las reseñas de Google">
+
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Cómo responder a las reseñas de Google | Nerego Studio">
+  <meta name="twitter:description" content="Responder a las reseñas de Google ayuda a tu posicionamiento local y genera confianza. Te explico cómo hacerlo bien, con ejemplos reales.">
+  <meta name="twitter:image" content="https://neregostudio.com/assets/img/og-image.jpg">
+
+  <!-- ── JSON-LD: BlogPosting ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Cómo responder a las reseñas de Google (y por qué deberías hacerlo siempre)",
+    "description": "Responder a las reseñas de Google ayuda a tu posicionamiento local y genera confianza. Te explico cómo hacerlo bien, con ejemplos reales.",
+    "datePublished": "2026-08-17",
+    "dateModified": "2026-08-17",
+    "author": {
+      "@type": "Person",
+      "name": "Joaquín",
+      "url": "https://neregostudio.com"
+    },
+    "publisher": {
+      "@type": "ProfessionalService",
+      "name": "Nerego Studio",
+      "url": "https://neregostudio.com"
+    },
+    "mainEntityOfPage": "https://neregostudio.com/blog/responder-resenas-google.html"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap">
+
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tokens.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/sections.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <!-- ── Analytics ── -->
+  <script defer src="https://analytics.neregostudio.com/script.js" data-website-id="5004f477-d71f-4e2b-853f-76dc89b01cde"></script>
+</head>
+<body>
+
+  <!-- =====================================================================
+       HEADER
+  ====================================================================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+
+      <a href="../index.html#inicio" class="header__logo" aria-label="Nerego Studio — volver al inicio">
+        NEREGO STUDIO
+      </a>
+
+      <nav class="header__nav" aria-label="Navegación principal">
+        <ul class="header__nav-list" role="list">
+          <li><a href="../index.html#solucion"      class="header__nav-link">Lo que hago</a></li>
+          <li><a href="../index.html#como-funciona" class="header__nav-link">Cómo trabajo</a></li>
+          <li><a href="../index.html#caso"          class="header__nav-link">Caso real</a></li>
+          <li><a href="../index.html#sobre-mi"      class="header__nav-link">Sobre mí</a></li>
+          <li><a href="../index.html#faq"           class="header__nav-link">FAQ</a></li>
+        </ul>
+        <a href="../index.html#contacto" class="btn btn--primary btn--sm">Auditoría gratuita</a>
+      </nav>
+
+      <button
+        class="header__hamburger"
+        id="hamburger-btn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+        <span class="header__hamburger-line" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       OVERLAY MÓVIL
+  ====================================================================== -->
+  <div
+    class="nav-overlay"
+    id="mobile-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú de navegación"
+    aria-hidden="true"
+  >
+    <nav aria-label="Menú móvil">
+      <ul class="nav-overlay__list" role="list">
+        <li class="nav-overlay__item">
+          <a href="../index.html#solucion" class="nav-overlay__link">Lo que hago</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#como-funciona" class="nav-overlay__link">Cómo trabajo</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#caso" class="nav-overlay__link">Caso real</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#sobre-mi" class="nav-overlay__link">Sobre mí</a>
+        </li>
+        <li class="nav-overlay__item">
+          <a href="../index.html#faq" class="nav-overlay__link">FAQ</a>
+        </li>
+      </ul>
+      <a href="../index.html#contacto" class="btn btn--primary btn--lg nav-overlay__cta">
+        Auditoría gratuita
+      </a>
+    </nav>
+  </div>
+
+  <!-- Sentinel para detectar scroll sin listeners continuos -->
+  <div class="scroll-sentinel" id="scroll-sentinel" aria-hidden="true"></div>
+
+  <main>
+
+    <!-- ==================================================================
+         ARTÍCULO — Cómo responder a las reseñas de Google
+    =================================================================== -->
+    <article class="post" aria-labelledby="post-title">
+      <div class="container post__inner">
+
+        <div class="post__header">
+          <span class="eyebrow">Blog</span>
+          <h1 class="post__title" id="post-title">Cómo responder a las reseñas de Google (y por qué deberías hacerlo siempre)</h1>
+          <p class="post__lead">
+            La mayoría de negocios locales tratan las reseñas como algo que reciben, no
+            como algo que gestionan. Alguien deja cinco estrellas, se quedan contentos y
+            ahí termina la historia. Y cuando llega una reseña mala, la ignoran porque no
+            saben qué decir.
+          </p>
+        </div>
+
+        <div class="post__body">
+
+          <p class="about__text">
+            Las dos cosas son un error. Responder a las reseñas —todas, buenas y malas—
+            es una de las palancas más baratas que tienes para el posicionamiento local,
+            y casi nadie la usa bien.
+          </p>
+
+          <h2>Por qué Google lo tiene en cuenta</h2>
+          <p class="about__text">
+            Tu ficha de Google Business Profile es, para un negocio local, más importante
+            que la propia web. Y Google mide si esa ficha está viva o abandonada. Cada
+            respuesta que escribes es una señal de actividad, y además suele contener las
+            palabras que describen tu negocio de forma natural — el nombre del servicio,
+            la zona donde trabajas. Eso refuerza exactamente lo que ya está trabajando tu
+            ficha.
+          </p>
+          <p class="about__text">
+            Y hay un motivo más simple todavía: la gente lee las respuestas antes de
+            decidir. Un negocio que contesta transmite que hay alguien al otro lado, y
+            eso pesa a la hora de elegir entre dos opciones parecidas.
+          </p>
+
+          <h2>Reseñas positivas: no las dejes pasar</h2>
+          <p class="about__text">
+            Es tentador no responder a un "muy buen servicio, repetiré" porque parece
+            que no hace falta. Pero cada respuesta es una oportunidad de reforzar tu
+            mensaje, sin que suene a publicidad.
+          </p>
+          <p class="about__text"><strong>Evita esto:</strong> "¡Gracias!"</p>
+          <p class="about__text"><strong>Mejor esto:</strong> "Gracias, Marta. Nos alegra que el montaje quedara a tu gusto — cualquier cosa que necesites, aquí estamos."</p>
+          <p class="about__text">
+            La diferencia es que la segunda menciona el servicio concreto y suena a que
+            la ha escrito una persona que sabe de qué habla, no una plantilla.
+          </p>
+
+          <h2>Reseñas negativas: aquí es donde se nota quién sabe</h2>
+          <p class="about__text">
+            Una reseña mala no la lee solo quien la escribió. La lee todo el que esté
+            decidiendo si te contrata, y tu respuesta pesa tanto como la reseña en sí.
+          </p>
+          <p class="about__text">Tres reglas simples:</p>
+          <ol class="post__list">
+            <li>No te defiendas en público. Aunque el cliente esté equivocado, discutir
+              en la respuesta solo hace quedar mal a los dos.</li>
+            <li>Reconoce, sin admitir culpas que no son tuyas. "Sentimos que la
+              experiencia no fuera la esperada" no es lo mismo que "tienes razón, lo
+              hicimos mal", y sirve igual.</li>
+            <li>Lleva la conversación fuera de la reseña. "Escríbenos a [teléfono o
+              email] y lo revisamos" muestra a cualquiera que lo lea que hay intención
+              de arreglarlo, sin airear detalles.</li>
+          </ol>
+
+          <h2>Un caso real</h2>
+          <p class="about__text">
+            Con uno de mis clientes, una empresa de montaje y transporte en Murcia, la
+            costumbre de responder cada reseña —también las de cuatro estrellas, no
+            solo las de cinco— ha llevado su ficha a 41 reseñas con una valoración
+            media de 5,0. No es casualidad: cuando alguien ve que cada opinión tiene
+            respuesta, se anima más a dejar la suya.
+          </p>
+
+          <h2>La plantilla que uso</h2>
+          <p class="about__text">
+            No hace falta un texto largo. Con esta estructura vale para la mayoría de
+            casos:
+          </p>
+          <ol class="post__list">
+            <li>Agradece o reconoce, por el nombre de la persona si lo tienes.</li>
+            <li>Menciona el servicio concreto, no genérico.</li>
+            <li>Cierra con una invitación abierta, sin sonar a despedida de guion.</li>
+          </ol>
+
+          <p class="about__text">
+            Si tienes una ficha de Google con reseñas sin contestar, es de las cosas
+            más rápidas de arreglar y de las que más se nota. Si quieres que te diga
+            qué más está frenando tu presencia en Google, pide tu auditoría gratuita.
+          </p>
+
+        </div><!-- /post__body -->
+
+        <div class="post__cta">
+          <a href="../index.html#contacto" class="btn btn--primary btn--lg">
+            Pide tu auditoría gratuita
+          </a>
+        </div>
+
+      </div><!-- /container -->
+    </article>
+
+  </main>
+
+  <!-- ==================================================================
+       FOOTER
+  =================================================================== -->
+  <footer class="footer" aria-label="Pie de página">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="../index.html#inicio" class="footer__logo" aria-label="Nerego Studio — volver al inicio">
+          NEREGO STUDIO
+        </a>
+        <p class="footer__tagline">
+          Ecosistema digital para negocios locales en España.
+        </p>
+        <p class="footer__location">Murcia, España</p>
+      </div>
+
+      <div class="footer__contact">
+        <a href="mailto:neregostudio@gmail.com" class="footer__link">
+          neregostudio@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/joaquin-hernandez-neregostudio/"
+          class="footer__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="footer__legal">
+        <a href="/aviso-legal.html" class="footer__legal-link">Aviso legal</a>
+        <a href="/politica-privacidad.html" class="footer__legal-link">Política de privacidad</a>
+        <a href="/politica-cookies.html" class="footer__legal-link">Cookies</a>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copyright">
+          © 2026 Nerego Studio · Todos los derechos reservados
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/bundled/lenis.min.js" defer></script>
+  <script src="../js/animations.js" defer></script>
+  <script src="../js/main.js" defer></script>
+
+</body>
+</html>

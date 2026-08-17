@@ -1913,3 +1913,111 @@
   margin-bottom: var(--space-3);
   display: block;
 }
+
+/* ==========================================================================
+   BLOG — Artículo individual (post__*)
+   ========================================================================== */
+
+.post {
+  padding-top: calc(72px + var(--section-gap));
+  padding-bottom: var(--section-gap);
+}
+
+.post__inner {
+  max-width: 46rem;
+}
+
+.post__header {
+  margin-bottom: var(--space-6);
+}
+
+.post__header .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.post__title {
+  font-size: var(--text-4xl);
+  margin-block: var(--space-3) var(--space-4);
+}
+
+.post__lead {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 56ch;
+}
+
+.post__body h2 {
+  font-size: var(--text-2xl);
+  margin-block: var(--space-8) var(--space-3);
+}
+
+.post__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
+  padding-left: 1.25em;
+}
+
+.post__list li {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 56ch;
+  padding-left: var(--space-1);
+}
+
+.post__cta {
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   BLOG — Índice (blog__*)
+   ========================================================================== */
+
+.blog {
+  padding-top: calc(72px + var(--section-gap));
+  padding-bottom: var(--section-gap);
+}
+
+.blog__inner {
+  max-width: 46rem;
+}
+
+.blog__title {
+  font-size: var(--text-4xl);
+  margin-block: var(--space-3) var(--space-6);
+}
+
+.blog-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-5);
+}
+
+.blog-card__title {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.blog-card__excerpt {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 56ch;
+  margin-bottom: var(--space-3);
+}
+
+.blog-card__link {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+.blog-card__link:hover {
+  color: var(--color-accent-primary-hover);
+  text-decoration: underline;
+}

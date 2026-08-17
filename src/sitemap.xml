@@ -16,12 +16,21 @@
     <priority>0.8</priority>
   </url> -->
 
-  <!-- Posts de blog — pendientes de migrar desde WordPress (Fase futura) -->
-  <!-- <url>
-    <loc>https://neregostudio.com/blog/responder-resenas-google.html</loc>
-    <changefreq>yearly</changefreq>
+  <url>
+    <loc>https://neregostudio.com/blog/</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url> -->
+  </url>
+
+  <url>
+    <loc>https://neregostudio.com/blog/responder-resenas-google.html</loc>
+    <lastmod>2026-08-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- citas-peluqueria-whatsapp.html — pendiente de escribir (Fase futura) -->
   <!-- <url>
     <loc>https://neregostudio.com/blog/citas-peluqueria-whatsapp.html</loc>
     <changefreq>yearly</changefreq>
