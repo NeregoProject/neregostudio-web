@@ -35,10 +35,13 @@
       var nombre   = form.querySelector('[name="nombre"]').value.trim();
       var telefono = form.querySelector('[name="telefono"]').value.trim();
       var negocio  = form.querySelector('[name="negocio"]').value.trim();
+      var email    = form.querySelector('[name="email"]').value.trim();
+      var web      = form.querySelector('[name="web"]').value.trim();
+      var mensaje  = form.querySelector('[name="mensaje"]').value.trim();
 
-      // Validación: todos los campos obligatorios
+      // Validación: solo los campos obligatorios (email, web y mensaje son opcionales)
       var hasError = false;
-      form.querySelectorAll('.cta-form__input').forEach(function (input) {
+      form.querySelectorAll('.cta-form__input[required]').forEach(function (input) {
         if (!input.value.trim()) {
           input.classList.add('cta-form__input--error');
           hasError = true;
@@ -59,7 +62,10 @@
         body: JSON.stringify({
           nombre:   nombre,
           telefono: telefono,
-          negocio:  negocio
+          negocio:  negocio,
+          email:    email,
+          web:      web,
+          mensaje:  mensaje
         })
       })
         .then(function (res) {

@@ -2021,3 +2021,14 @@
   color: var(--color-accent-primary-hover);
   text-decoration: underline;
 }
+
+.cta-form__textarea {
+  resize: vertical;
+  min-height: 96px;
+  font-family: inherit;
+}
+
+.cta-form__optional {
+  font-weight: normal;
+  opacity: 0.6;
+}
