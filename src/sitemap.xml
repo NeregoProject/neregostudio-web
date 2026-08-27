@@ -3,38 +3,23 @@
 
   <url>
     <loc>https://neregostudio.com/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- diagnostico.html — pendiente de construir (Fase futura) -->
-  <!-- <url>
-    <loc>https://neregostudio.com/diagnostico.html</loc>
-    <lastmod>2026-06-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url> -->
-
   <url>
     <loc>https://neregostudio.com/blog/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://neregostudio.com/blog/responder-resenas-google.html</loc>
-    <lastmod>2026-08-23</lastmod>
+    <lastmod>2026-08-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
-  <!-- citas-peluqueria-whatsapp.html — pendiente de escribir (Fase futura) -->
-  <!-- <url>
-    <loc>https://neregostudio.com/blog/citas-peluqueria-whatsapp.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url> -->
 
 </urlset>
