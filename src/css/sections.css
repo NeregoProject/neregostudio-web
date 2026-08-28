@@ -1923,7 +1923,7 @@
 
 /* Captura de ChatGPT como prueba del caso */
 .case__proof {
-  max-width: 455px;
+  max-width: 640px;
   margin-inline: auto;
   margin-block: var(--space-5);
   text-align: center;
@@ -1938,6 +1938,27 @@
   font-style: italic;
   font-size: var(--text-lg);
   color: var(--color-text-primary);
+}
+
+/* La cita manda; la captura de abajo la respalda */
+.case__proof-quote {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+
+.case__proof-quote p {
+  max-width: none;
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+}
+
+.case__proof-cite {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-style: normal;
+  color: var(--color-text-muted);
 }
 
 .case__proof img {
