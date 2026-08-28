@@ -1851,6 +1851,12 @@
 
 .case__lead {
   color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+/* El subtitular del header ya tiene su separacion via .case__header */
+.case__header .case__lead {
+  margin-bottom: 0;
 }
 
 .case__grid {
@@ -1902,6 +1908,31 @@
   margin-top: var(--space-2);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
+}
+
+/* Testimonio del caso */
+.case__quote {
+  margin-top: var(--space-5);
+  padding-left: var(--space-3);
+  border-left: 3px solid var(--color-accent-primary);
+}
+
+.case__quote-text {
+  font-size: var(--text-lg);
+  color: var(--color-text-primary);
+  text-wrap: pretty;
+}
+
+.case__quote-author {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Separación entre párrafos apilados dentro de un bloque del caso */
+.case-block__text + .case-block__text {
+  margin-top: var(--space-2);
 }
 
 /* Foto de Joaquín en «Sobre mí» */
