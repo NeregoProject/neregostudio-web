@@ -31,68 +31,128 @@
 
   <!-- ── JSON-LD: ProfessionalService ── -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Nerego Studio",
-    "url": "https://neregostudio.com",
-    "email": "neregostudio@gmail.com",
-    "description": "Diseño y desarrollo de páginas web para negocios locales, con posicionamiento en Google, visibilidad en buscadores con IA y captación de clientes mediante formularios y asistentes de WhatsApp.",
-    "slogan": "Webs que aparecen en Google y te traen clientes",
-    "founder": {
-      "@type": "Person",
-      "name": "Joaquín",
-      "jobTitle": "Fundador"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Murcia",
-      "addressRegion": "Región de Murcia",
-      "addressCountry": "ES"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "España"
-    },
-    "telephone": "+34622484313",
-    "priceRange": "€€",
-    "sameAs": [
-      "https://www.linkedin.com/in/joaquin-hernandez-neregostudio/"
-    ],
-    "serviceType": [
-      "Diseño y desarrollo de páginas web",
-      "Posicionamiento SEO local",
-      "Visibilidad en buscadores con inteligencia artificial",
-      "Captación de clientes con formularios y asistentes de WhatsApp"
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Planes Nerego Studio",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "name": "Esencial",
-          "price": "120",
-          "priceCurrency": "EUR",
-          "description": "Web profesional a medida, mantenimiento, ficha de Google optimizada y formulario de contacto."
+ {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://neregostudio.com/#organizacion",
+  "name": "Nerego Studio",
+  "url": "https://neregostudio.com",
+  "email": "neregostudio@gmail.com",
+  "description": "Diseño y desarrollo de páginas web para negocios locales, con posicionamiento en Google, visibilidad en buscadores con IA y captación de clientes mediante formularios y asistentes de WhatsApp.",
+  "slogan": "Creación web · SEO · Captación de clientes",
+  "logo": "https://neregostudio.com/apple-touch-icon.png",
+  "image": "https://neregostudio.com/apple-touch-icon.png",
+  "founder": {
+    "@type": "Person",
+    "name": "Joaquín",
+    "jobTitle": "Fundador",
+    "sameAs": "https://www.linkedin.com/in/joaquin-hernandez-neregostudio/"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Murcia",
+    "addressRegion": "Región de Murcia",
+    "addressCountry": "ES"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "España y clientes en remoto de cualquier país"
+  },
+  "telephone": "+34622484313",
+  "priceRange": "€€",
+  "sameAs": [
+    "https://www.linkedin.com/in/joaquin-hernandez-neregostudio/"
+  ],
+  "knowsAbout": [
+    "Diseño y desarrollo de páginas web para negocios locales",
+    "Posicionamiento SEO local en Google",
+    "Optimización de fichas de Google Business Profile",
+    "Visibilidad y recomendación de negocios en buscadores con inteligencia artificial",
+    "Captación de clientes mediante formularios y asistentes de WhatsApp"
+  ],
+  "serviceType": [
+    "Diseño y desarrollo de páginas web",
+    "Posicionamiento SEO local",
+    "Visibilidad en buscadores con inteligencia artificial",
+    "Captación de clientes con formularios y asistentes de WhatsApp"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios y planes de Nerego Studio",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Web completa a medida",
+        "description": "Diseño y desarrollo de una web profesional a medida, optimizada para Google y para buscadores con IA, con formulario de contacto. Entrega entre 7 y 15 días.",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Diseño y desarrollo web",
+          "serviceType": "Diseño y desarrollo de páginas web"
         },
-        {
-          "@type": "Offer",
-          "name": "Acelerador",
-          "price": "220",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": "500",
           "priceCurrency": "EUR",
-          "description": "Todo lo del plan Esencial más posicionamiento SEO continuo, asistente de WhatsApp 24h e informe mensual con datos de Google."
-        },
-        {
-          "@type": "Offer",
-          "name": "Premium",
-          "price": "350",
-          "priceCurrency": "EUR",
-          "description": "Todo lo del plan Acelerador más seguimiento de visibilidad en buscadores con IA, páginas nuevas de servicio cada mes y soporte prioritario."
+          "valueAddedTaxIncluded": false
         }
-      ]
-    }
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Esencial",
+        "description": "Mantenimiento de la web, ficha de Google optimizada y formulario de contacto.",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mantenimiento y presencia digital",
+          "serviceType": "Mantenimiento web y posicionamiento local"
+        },
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": "120",
+          "priceCurrency": "EUR",
+          "unitText": "mes",
+          "billingIncrement": 1,
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Acelerador",
+        "description": "Todo lo del plan Esencial más posicionamiento SEO continuo, asistente de WhatsApp 24h e informe mensual con datos de Google.",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SEO continuo y captación",
+          "serviceType": "Posicionamiento SEO local y captación de clientes"
+        },
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": "220",
+          "priceCurrency": "EUR",
+          "unitText": "mes",
+          "billingIncrement": 1,
+          "valueAddedTaxIncluded": false
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Plan Premium",
+        "description": "Todo lo del plan Acelerador más seguimiento de visibilidad en buscadores con IA, páginas nuevas de servicio cada mes y soporte prioritario.",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Visibilidad en buscadores con IA",
+          "serviceType": "Posicionamiento en buscadores con inteligencia artificial"
+        },
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "minPrice": "350",
+          "priceCurrency": "EUR",
+          "unitText": "mes",
+          "billingIncrement": 1,
+          "valueAddedTaxIncluded": false
+        }
+      }
+    ]
   }
+}
   </script>
 
   <!-- ── JSON-LD: FAQPage ── -->
@@ -122,7 +182,7 @@
         "name": "¿Cuánto cuesta y cuánto tarda?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Una web completa parte de 500 €, y el mantenimiento con posicionamiento desde 120 € al mes. El plazo de entrega es de 15 días desde que tengo los contenidos. Te paso siempre una propuesta cerrada por escrito antes de empezar."
+          "text": "Una web completa parte de 500 €, y el mantenimiento con posicionamiento desde 120 € al mes. El plazo de entrega es de 7 a 15 días desde que tengo los contenidos. Te paso siempre una propuesta cerrada por escrito antes de empezar."
         }
       },
       {
@@ -603,7 +663,7 @@
                 <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
               </svg>
             </div>
-            <h3 class="how-step__title">Lo monto en 15 días, y me quedo</h3>
+            <h3 class="how-step__title">Lo monto en 7-15 días, y me quedo</h3>
             <p class="how-step__desc">A mitad te enseño cómo va para que ajustemos lo que haga falta. Y cada mes te mando un informe con lo que ha pasado: cuánta gente te ha buscado, por qué palabras has salido y cuántos contactos han entrado.</p>
           </div>
 
@@ -1187,7 +1247,7 @@
               ¿Cuánto cuesta y cuánto tarda?
             </summary>
             <div class="faq-item__answer">
-              <p>Una web completa parte de 500 €, y el mantenimiento con posicionamiento desde 120 € al mes. El plazo de entrega es de 15 días desde que tengo los contenidos. Te paso siempre una propuesta cerrada por escrito antes de empezar.</p>
+              <p>Una web completa parte de 500 €, y el mantenimiento con posicionamiento desde 120 € al mes. El plazo de entrega es de 7 a 15 días desde que tengo los contenidos. Te paso siempre una propuesta cerrada por escrito antes de empezar.</p>
             </div>
           </details>
 
