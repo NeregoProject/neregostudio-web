@@ -1,10 +1,23 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://neregostudio.com/sitemap.xml
+# Rastreadores de buscadores con IA: acceso permitido de forma explicita
+User-agent: GPTBot
+Allow: /
 
-# Bloquear rutas de WordPress que puedan quedar indexadas tras la migración
-Disallow: /wp-admin/
-Disallow: /wp-login.php
-Disallow: /wp-content/
-Disallow: /wp-includes/
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://neregostudio.com/sitemap.xml
