@@ -7,9 +7,8 @@
 
 ## Qué es este proyecto
 
-Sitio web **estático** de Nerego Studio (neregostudio.com), agencia de
-automatización e IA para **negocios locales en España** (barberías, peluquerías,
-clínicas, fisioterapeutas, restaurantes, etc.).
+Sitio web **estático** de Nerego Studio (neregostudio.com): creación web, SEO y
+visibilidad en buscadores e IA para **pequeños y medianos negocios en España**.
 
 Reemplaza una instalación anterior en WordPress + Elementor. Se sirve como
 HTML/CSS/JS estático en **Easypanel + Nginx**. **No reintroduzcas WordPress.**
@@ -20,64 +19,76 @@ HTML/CSS/JS estático en **Easypanel + Nginx**. **No reintroduzcas WordPress.**
 
 ### Público objetivo
 
-Dueños de negocios locales con 1–10 empleados en España. Gente práctica que
-necesita resultados, no tecnología. **Nicho prioritario: barberías y peluquerías.**
-Nichos secundarios: clínicas dentales, fisioterapia, restaurantes, centros de
-estética, transporte local, academias.
+Dueños de pequeños y medianos negocios en España: negocios locales que viven de
+que les llamen, les escriban o les pidan presupuesto. Gente práctica que necesita
+resultados, no tecnología.
+
+**No hay un nicho único.** Sirve a cualquier negocio local: peluquerías y
+barberías, clínicas dentales, fisioterapia, restaurantes, centros de estética,
+transporte y montaje de muebles, academias, servicios a domicilio. El copy debe
+funcionar para todos ellos, no cerrarse a uno.
 
 ### Qué ofrece Nerego Studio
 
-Nerego monta el ecosistema digital completo para negocios locales. La pieza
-central es una **web profesional con sistema de reservas integrado** que el
-cliente puede usar desde el día 1. Sobre esa base se añaden capas de
-automatización por WhatsApp e inteligencia de negocio.
+Tres cosas, y solo tres:
 
-#### Los 4 pilares del servicio (en este orden de prioridad):
+1. **Creación web** — Web profesional a medida, rápida y pensada para convertir
+   visitas en contactos: llamadas, WhatsApps y solicitudes de presupuesto.
+2. **SEO y posicionamiento** — Que el negocio aparezca en Google cuando alguien
+   busca su servicio en su zona. Incluye SEO local y ficha de Google.
+3. **Visibilidad en IA** — Preparar el negocio para que herramientas como ChatGPT
+   lo recomienden cuando alguien pregunta por ese servicio.
 
-1. **Web profesional + Reservas online** — Página web del negocio con sistema
-   de reservas integrado. El cliente elige servicio, día y hora desde la web,
-   sin llamar ni escribir. El dueño recibe la cita confirmada automáticamente.
-   **Esta es la puerta de entrada y el producto estrella.**
-2. **Sistema de Reactivación** — Recupera clientes inactivos con mensajes
-   automáticos por WhatsApp. "Luis no viene hace 2 meses → recibe un mensaje
-   → reserva desde la web esa misma tarde."
-3. **Vendedor Digital 24/7** — Agente IA en WhatsApp que responde preguntas,
-   sugiere servicios y redirige a la web para reservar. Funciona fuera de
-   horario, fines de semana, festivos.
-4. **Cerebro de Negocio** — Informes semanales automáticos con datos reales:
-   citas, ingresos, clientes nuevos vs recurrentes, horas pico. El dueño sabe
-   qué pasa sin preguntar.
+> **Importante:** los servicios de reservas online, reactivación de clientes por
+> WhatsApp, agente de IA 24/7 y "cerebro de negocio" **ya no forman parte de la
+> oferta**. Si los encuentras mencionados en cualquier archivo del proyecto,
+> avísame: son restos de una etapa anterior y hay que eliminarlos.
 
-### Estructura de precios (tres niveles)
+### Precios actuales
 
-- **Esencial** (~120 €/mes) — Web + reservas + Reactivación.
-- **Acelerador** (~220 €/mes) — Todo lo anterior + Vendedor Digital 24/7.
-- **Premium** (~350 €/mes) — Todo lo anterior + Cerebro de Negocio + soporte
-  prioritario.
-- Setup inicial: ~150 € (una vez).
+- **Proyecto web:** desde 300 €.
+- **Mantenimiento con posicionamiento:** desde 80 €/mes.
 
-### Entrada al cliente
+No hay planes con nombre (Esencial / Acelerador / Premium). Esa estructura es de
+una etapa anterior y ya no se usa. **Si encuentras importes de 120 €, 220 €,
+350 €, 500 € o 150 € en cualquier archivo, avísame antes de tocarlos.**
 
-La **web con reservas** es la puerta de entrada. Es lo primero que el dueño de
-negocio entiende y quiere. Se ofrece una **consulta gratuita** donde se muestra
-cómo quedaría su web con el sistema de reservas funcionando. El objetivo es que
-el dueño vea el resultado antes de decidir.
+Son precios de entrada, pensados para acumular casos reales. Se revisarán al
+alza más adelante.
 
-WhatsApp es el **canal de comunicación y automatización**, no el sistema de
-reservas. Los clientes reservan en la web; WhatsApp se usa para recordatorios,
-reactivación y atención fuera de horario.
+### La auditoría gratuita
+
+Es la puerta de entrada al cliente y el CTA principal de toda la web.
+
+**Llámala siempre "auditoría"**, en singular y en femenino: "auditoría gratuita",
+"pide tu auditoría". Nunca "consulta", "diagnóstico", "revisión" ni "análisis".
+El archivo del formulario se llama `diagnostico.html` por motivos históricos, pero
+el texto visible para el usuario siempre dice auditoría.
+
+La auditoría entrega: los principales problemas de la web, qué frena su
+visibilidad en Google, qué oportunidades está perdiendo frente a la competencia
+y las tres mejoras prioritarias.
+
+Se ofrece sin compromiso y sin llamada comercial. Ese punto se comunica siempre.
 
 ### Tono y lenguaje
 
-- **Directo, cálido, sin jerga técnica.** Habla como le hablarías al dueño de
-  la barbería de tu barrio.
-- Nada de "IA", "automatización", "stack tecnológico" en el copy visible.
-  Usa: "tu negocio lleno", "clientes que vuelven solos", "reservas desde tu web",
-  "citas sin llamadas", "saber qué pasa en tu negocio sin preguntar".
-- **No uses "caso piloto"** — es un término que resta credibilidad.
-- Ejemplos siempre concretos: "Un cliente entra en tu web a las 23:00. Ve que
-  el martes a las 11:00 hay hueco. Reserva. Tú te enteras por la mañana con
-  la cita ya confirmada."
+- **Primera persona del singular, SIEMPRE.** Joaquín trabaja solo y es una de sus
+  mejores bazas comerciales. Escribe "hago", "monto", "trabajo", "te enseño".
+  ❌ Nunca "hacemos", "nuestro equipo", "en Nerego creemos". Nada de plurales
+  de agencia.
+- **Directo, cálido, sin jerga técnica.** Habla como le hablarías al dueño de la
+  barbería de tu barrio.
+- **Resultados, no tecnicismos.** Un negocio pequeño no compra "SEO", compra más
+  llamadas, más WhatsApps y más presupuestos. Titula por el resultado.
+- **Sí se puede mencionar Google y ChatGPT.** Son el diferencial del discurso y
+  aparecen en el titular principal. Lo que hay que evitar es la jerga hueca:
+  "stack tecnológico", "soluciones end-to-end", "transformación digital".
+- **Honestidad por encima de espectacularidad.** No prometas posiciones ni
+  resultados garantizados. Decir abiertamente que nadie puede garantizar
+  aparecer en ChatGPT es un activo de confianza, no una debilidad.
+- **No uses "caso piloto"** — resta credibilidad.
+- Ejemplos siempre concretos y reales, nunca inventados.
 
 Fundador: **Joaquín** · Murcia, España · nerego.ai@gmail.com
 
@@ -91,22 +102,27 @@ Fundador: **Joaquín** · Murcia, España · nerego.ai@gmail.com
 - **JavaScript vanilla**. ❌ NADA de frameworks JS (ni React, ni Vue, ni similares).
 - **Lenis** para smooth scroll (~5 KB), ya incluido. No añadas otra librería de scroll.
 - Google Fonts vía `<link>` con `display=swap`.
-- **SVG inline** para iconografía y mockups.
+- **SVG inline** para iconografía.
 - **Sin proceso de build.** Se sirve `src/` directamente.
 - No añadas dependencias pesadas sin proponérmelo antes.
+- **El rendimiento es argumento de venta.** Vendemos SEO: la web propia tiene que
+  cargar rápido. Antes de añadir imágenes pesadas o librerías, propónmelo.
 
 ---
 
-## Sistema de diseño (Fase 1 completada)
+## Sistema de diseño
 
-Paleta y tipografía ya definidas en `src/css/tokens.css`:
+Paleta y tipografía definidas en `src/css/tokens.css`:
 
 - **Color primario:** Azul tinta (ink blue) — profesional, confianza.
 - **Color acento:** Terracota — calidez, cercanía, local.
-- **Tipografía display:** Bricolage Grotesque — personalidad sin ser genérica.
+- **Tipografía display:** Bricolage Grotesque.
 - **Tipografía body:** según tokens.css.
 
 **Usa siempre las variables de `tokens.css`.** No inventes colores ni tamaños.
+
+El naranja/terracota está reservado para el CTA principal. Evita competir con él
+en la misma pantalla.
 
 ---
 
@@ -141,95 +157,45 @@ Código fuente en `src/`:
 
 - `src/css/` → `tokens.css` · `reset.css` · `base.css` · `components.css` · `sections.css`
 - `src/js/` → `main.js` · `animations.js` · `form.js` · `cookies.js`
-- `src/assets/svg/` → `mockups/` · `icons/` · `logos/`
+- `src/assets/svg/` → `icons/` · `logos/`
 
 ---
 
-## Estructura de secciones de index.html (nuevo enfoque)
+## Estructura real de la web
 
-La landing sigue este orden exacto. **No cambies el orden sin consultarme.**
+**Navegación principal:** Lo que hago · Cómo trabajo · Caso real · Sobre mí ·
+FAQ · Blog · [Auditoría gratuita]
 
-### Sección 1 — Header + Hero ✅ (construida, pendiente de ajuste)
-- Nav fijo con logo + CTA "Habla con nosotros"
-- Titular: "Tu negocio lleno, sin perseguir clientes"
-- Subtítulo: "Tus clientes reservan desde tu web, reciben recordatorios por
-  WhatsApp y los que se fueron vuelven solos."
-- CTA principal → formulario de consulta
-- Elemento visual: **DOS mockups** —
-  1. Pantalla de laptop/tablet mostrando la web del negocio con el calendario
-     de reservas (slots disponibles, selección de servicio y hora)
-  2. Móvil con WhatsApp mostrando recordatorio automático de cita
-  - El mockup de reservas web va delante/más grande (es el producto principal).
-  - El mockup de WhatsApp va detrás/más pequeño (es el complemento).
-  - Si el layout no permite los dos bien, prioriza el de reservas web.
+**Secciones de `index.html`:**
 
-### Sección 2 — Problema
-- 3–4 pains concretos del dueño de negocio local:
-  - "Pierdes clientes porque no contestas a tiempo"
-  - "Clientes que vinieron una vez y no volvieron"
-  - "No sabes qué pasa en tu negocio hasta fin de mes"
-  - "Dependes de que te llamen para tener citas"
-- Tono empático, no agresivo. El dueño se ve reflejado.
+1. **Header + Hero** — Titular: "Hago que Google y ChatGPT recomienden tu
+   negocio". Subtítulo en primera persona. CTA principal a la auditoría y CTA
+   secundario a "Ver cómo trabajo".
+2. **Lo que hago** — Los servicios, titulados por resultado y no por técnica.
+3. **Cómo trabajo** — El proceso, paso a paso.
+4. **Caso real** — JL Salazar (transporte y montaje de muebles en Murcia). Es la
+   pieza comercial más fuerte de la web.
+5. **Sectores** — Los tipos de negocio con los que trabaja.
+6. **Sobre mí** — Joaquín, en primera persona.
+7. **FAQ**
+8. **CTA final + Footer**
 
-### Sección 3 — Solución (los 4 pilares)
-- Cada pilar con: nombre, qué hace en una frase, ejemplo real de barbería
-- **Orden: Web+Reservas → Reactivación → Vendedor Digital → Cerebro de Negocio**
-- El pilar de Web+Reservas va destacado visualmente (es el producto estrella)
-- Visual: mockup SVG por pilar
-- No mencionar tecnología. Solo resultados.
+**Otras páginas:** `diagnostico.html` (formulario de auditoría) y `blog/`.
 
-### Sección 4 — Cómo funciona
-- 3 pasos simples:
-  1. "Te enseñamos cómo quedaría" (consulta gratuita con demo real)
-  2. "Montamos todo en días" (web + reservas + WhatsApp)
-  3. "Tu negocio funciona solo" (reservas automáticas, clientes que vuelven)
-- Aquí SÍ tiene sentido la numeración porque es una secuencia real.
-
-### Sección 5 — Caso real / Demo
-- Cuando Hair Gallery esté cerrado: caso real con datos y capturas.
-- Mientras tanto: demo visual tipo "antes vs después" de una barbería.
-  Mockup de la web de la barbería con calendario de reservas funcionando.
-  Ejemplo: "Antes: 6 llamadas perdidas al día. Después: reservas 24h desde
-  la web, 0 llamadas necesarias."
-
-### Sección 6 — Nichos
-- Grid visual con los sectores: barberías (destacado), peluquerías, clínicas,
-  fisioterapia, restaurantes, centros de estética, transporte.
-- Cada nicho puede evolucionar a landing propia más adelante.
-
-### Sección 7 — Precios
-- Los tres niveles (Esencial, Acelerador, Premium) con lo que incluye cada uno.
-- Esencial incluye web + reservas (dejarlo claro como base).
-- Setup como nota al pie, no como barrera.
-- CTA en cada plan → "Quiero este plan" / "Hablamos"
-
-### Sección 8 — Sobre Nerego
-- Breve. Joaquín, Murcia, por qué hace esto.
-- Sin "caso piloto". Sin tech bro. Cercano y directo.
-- Foto o ilustración.
-
-### Sección 9 — FAQ
-- 5–6 preguntas reales que haría un dueño de barbería:
-  "¿Necesito saber de tecnología?", "¿Cuánto tarda en funcionar?",
-  "¿Puedo gestionar las reservas yo?", "¿Y si un cliente quiere cambiar
-  la cita?", "¿Mis clientes no se van a molestar con los mensajes?", etc.
-
-### Sección 10 — CTA final + Footer
-- CTA de cierre: "¿Quieres ver cómo quedaría la web de tu negocio?"
-- Formulario corto o botón WhatsApp.
-- Footer con datos legales, contacto, redes.
+**No cambies el orden de secciones ni añadas secciones nuevas sin consultarme.**
 
 ---
 
-## SEO y Schema (Fase 14 del roadmap)
+## SEO y Schema
 
-- Público: dueños de negocios locales en España buscando soluciones prácticas.
-- Keywords orientativas: "web para barbería con reservas", "sistema reservas
-  peluquería", "página web barbería", "reservas online peluquería",
-  "recuperar clientes barbería", "gestión citas automática".
-- Schema pendiente: `LocalBusiness` / `ProfessionalService`.
-- Un solo `<h1>` por página, meta description, Open Graph.
+- Un solo `<h1>` por página, meta description y Open Graph en todas.
 - `alt` descriptivo en todas las imágenes.
+- Schema: `LocalBusiness` / `ProfessionalService`.
+- Keywords orientativas: "diseño web para negocios locales", "SEO local Murcia",
+  "página web para pequeños negocios", "aparecer en Google negocio local",
+  "que ChatGPT recomiende mi negocio", "posicionamiento web Murcia".
+- **Cuidado con los precios en el schema.** Si hay `Offer` o `priceRange` en los
+  metadatos, tiene que coincidir con los precios visibles en la web.
 
 ---
 
@@ -244,13 +210,19 @@ python -m http.server 3000   # → http://localhost:3000
 
 ## Estado del proyecto
 
-El roadmap va por fases (ver tabla en `README.md`).
+**La web está terminada y en producción.** La migración desde WordPress está
+completa. Ya no hay fases de construcción pendientes.
 
-**Fase 0 — ✅ Completa** (estructura + git)
-**Fase 1 — ✅ Completa** (tokens.css, reset.css, base.css)
-**Fase 2 — ✅ Completa** (Header + Hero — pendiente ajuste de mockups)
-**Fase actual → Fase 2.1** (Ajuste del hero: cambiar mockup WhatsApp por mockup
-de web con reservas como elemento principal + WhatsApp como complemento.
-Actualizar subtítulo.)
+**Fase actual: pulido.** Ajustes de detalle sobre una web que ya funciona:
+copy, rendimiento, conversión y contenido nuevo.
 
-**Pregúntame en qué fase estamos antes de generar secciones nuevas.**
+Esto significa que:
+
+- **No generes secciones nuevas por iniciativa propia.** Pregúntame primero.
+- Los cambios son quirúrgicos: localiza, muéstrame qué vas a tocar, espera
+  confirmación y entonces edita.
+- Antes de aplicar cualquier cambio que afecte a varios archivos, enséñame la
+  lista de archivos y líneas afectadas.
+
+**Trabajamos paso a paso: un cambio por vez, y espera mi confirmación antes de
+seguir con el siguiente.**
