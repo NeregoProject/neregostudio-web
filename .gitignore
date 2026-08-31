@@ -46,6 +46,7 @@ build/
 
 # Originales de trabajo de imagenes (solo se sirven .avif y .webp)
 src/assets/img/Hero.png
+/hero-mobile-2.png
 src/assets/img/*.psd
 src/assets/img/*.ai
 src/assets/img/*.xcf
